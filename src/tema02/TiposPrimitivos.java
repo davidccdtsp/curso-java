@@ -1,4 +1,4 @@
-package tema01;
+package tema02;
 
 import java.util.ArrayList;
 import java.util.Arrays;

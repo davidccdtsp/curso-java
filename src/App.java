@@ -1,4 +1,4 @@
-import tema01.TiposPrimitivos;
+import tema02.TiposPrimitivos;
 
 public class App {
 
