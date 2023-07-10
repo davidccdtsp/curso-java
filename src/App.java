@@ -10,8 +10,11 @@ public class App {
         // TiposPrimitivos.ejemplo03();
         // TiposPrimitivos.ejemplo04();
         // TiposPrimitivos.ejemplo05();
-        // TiposPrimitivos.ejemlo06();
+        // TiposPrimitivos.ejemplo06();
         // TiposPrimitivos.ejemplo07();
-        TiposPrimitivos.ejemplo08();
+        // TiposPrimitivos.ejemplo08();
+        // TiposPrimitivos.ejemplo09();
+        TiposPrimitivos.ejemplo10();
+
     }
 }
