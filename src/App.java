@@ -1,4 +1,5 @@
 import tema02.TiposPrimitivos;
+import tema03.Vectores;
 
 public class App {
 
@@ -14,7 +15,11 @@ public class App {
         // TiposPrimitivos.ejemplo07();
         // TiposPrimitivos.ejemplo08();
         // TiposPrimitivos.ejemplo09();
-        TiposPrimitivos.ejemplo10();
+        // TiposPrimitivos.ejemplo10();
+
+        // Vectores.ejemplo01();
+        // Vectores.ejemplo02();
+        Vectores.ejemplo03();
 
     }
 }
