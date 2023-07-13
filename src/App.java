@@ -1,5 +1,6 @@
 import tema02.TiposPrimitivos;
 import tema03.Vectores;
+import tema04.Operadores;
 
 public class App {
 
@@ -19,7 +20,21 @@ public class App {
 
         // Vectores.ejemplo01();
         // Vectores.ejemplo02();
-        Vectores.ejemplo03();
+        // Vectores.ejemplo03();
+
+        // Operadores.asignacion();
+        // Operadores.aritmeticos();
+        // Operadores.unarios();
+        // Operadores.igualdad();
+        // Operadores.relacionales();
+        // Operadores.condicionales();
+        // Operadores.instanciaDe();
+        // Operadores.bitwise();
+        Operadores.bitShift();
+
+
+
+
 
     }
 }
