@@ -1,6 +1,6 @@
 package tema06;
 
-public class Declaraciones {
+public class Sentencias {
 
   public static void ejemplo01(){
 
