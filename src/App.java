@@ -1,6 +1,7 @@
 import tema02.TiposPrimitivos;
 import tema03.Vectores;
 import tema04.Operadores;
+import tema06.*;
 
 public class App {
 
@@ -30,7 +31,10 @@ public class App {
         // Operadores.condicionales();
         // Operadores.instanciaDe();
         // Operadores.bitwise();
-        Operadores.bitShift();
+        // Operadores.bitShift();
+
+        // Expresiones.ejemplo01();
+        Declaraciones.ejemplo01();
 
 
 

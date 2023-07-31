@@ -217,7 +217,7 @@ public class Operadores {
     resultado = valorA >>> 2;
     System.out.println(" A >>> 2 = " + Integer.toBinaryString(resultado));
 
-    valorA = -21;
+    valorA = -21; // 11111111111111111111111111101011
 
     System.out.println("A = " + Integer.toBinaryString(valorA));
     resultado = valorA >> 2;
