@@ -47,7 +47,10 @@ public class App {
         // ControlFlujo.ejemplo06();
         // ControlFlujo.ejemplo07();
 
-        ClasesJava.ejemplo01();
+        // ClasesJava.ejemplo01();
+        // ClasesJava.ejemplo02();
+        // ClasesJava.ejemplo03();
+        ClasesJava.ejemplo04();
 
 
 

@@ -29,29 +29,4 @@ class Gato {
   }
 }
 
-class Clase{
-  // Cuerpo de la clase
-
-  // Declaracion de member variable
-  public int edad;
-
-  public int valorPublico;
-  private int valorPrivado;
-
-  public void setValorPrivado(int valor){
-    valorPrivado = valor;
-  }
-
-  public void imprimirValor(){
-    System.out.println("valorPublico = "+valorPublico);
-    System.out.println("valorPrivado = "+valorPrivado);
-  }
-
-  public int foo(int valor){
-    int resultado = valor * 3;
-    return resultado;
-  }
-
-
-}
 
