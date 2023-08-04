@@ -119,6 +119,8 @@ public class TiposPrimitivos {
     long maxLong = 0x7fff_ffff_ffff_ffffL;
     byte nybbles = 0b0010_0101;
     long bLong = 0b11010010_01101001_10010100_10010010;
+    // String de digitos esperado
+    // int i = Integer.parseInt("123_456");    // Lanza NumberFormatException
 
     System.out.println("1234_5678_9012_3456L = " + numTarjeta);
     System.out.println("999_999_999L = " + dni);
