@@ -22,8 +22,15 @@ public class Pruebas {
     porDefecto.printYear();
   }
 
+  // Acceso a miembros privados desde fuera de la clase
+  // pero en el mismo package
   EjemploPrivado privado = new EjemploPrivado();
 
-
+  public void privado() {
+    // El siguiente codigo producira un error
+    // System.out.println(EjemploPrivado.title);
+    // System.out.println(privado.year);
+    // privado.printYear();
+  }
 
 }

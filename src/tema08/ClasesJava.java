@@ -30,9 +30,13 @@ public class ClasesJava {
     resultado = instanciaDeClase.calcular(1, 2);
 
     // Llamando al constructor de la clase
-    Coche coche = new Coche(1600, 310);
+    Coche coche = new Coche(1600, 310, 1600);
 
+    System.out.println(coche);
     coche.entrar(new Pasajero("A", 86), new Pasajero("B", 67), new Pasajero("C", 76));
+    System.out.println("Entran pasajeros");
+    System.out.println(coche);
+
 
 
   }
@@ -132,6 +136,43 @@ public class ClasesJava {
     // System.out.println(EjemploPrivado.title);
     // System.out.println(privado.year);
     // privado.printYear();
+  }
+
+  // Ejemplos miembros de clase
+  public static void ejemplo05() {
+
+    System.out.println();
+    System.out.println("La variable de clase Coche.fabricados = " + Coche.fabricados);
+    // Modificando el valor sin instancias
+    Coche.fabricados = 100;
+    System.out.println("Modificamos su valor a 100");
+    System.out.println("Coche.fabricados = " + Coche.fabricados);
+
+    System.out.println();
+    Coche coche1 = new Coche(1625, 411, 2693);
+    System.out.println("Creamos una instancia de Coche");
+    System.out.println("Coche.fabricados = " + Coche.fabricados);
+    Coche coche2 = new Coche(1635, 421, 2729);
+    System.out.println("Creamos otra instancia de Coche");
+    System.out.println("Coche.fabricados = " + Coche.fabricados);
+    System.out.println("Coche 1: " + coche1);
+    System.out.println("Coche 2: " + coche2);
+
+    System.out.println();
+    // System.out.println("La variable de clase Bicicleta.fabricadas = " + Bicicleta.fabricados);  // Error
+    System.out.println("La variable de clase Bicicleta.fabricadas = " + Bicicleta.unidadesFabricadas());
+
+    System.out.println();
+    Bicicleta bici1 = new Bicicleta("Transition Spire");
+    System.out.println("Creamos una instancia de Bicicleta");
+    System.out.println("Bicicleta.fabricadas = " + Bicicleta.unidadesFabricadas());
+    Bicicleta bici2 = new Bicicleta("Santa Cruz Nomad");
+    System.out.println("Creamos otra instancia de Bicicleta");
+    System.out.println("Bicicleta.fabricadas = " + Bicicleta.unidadesFabricadas());
+    System.out.println("Bicicleta 1: " + bici1);
+    System.out.println("Bicicleta 2: " + bici2);
+
+
   }
 
 }

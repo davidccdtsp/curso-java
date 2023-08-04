@@ -50,7 +50,8 @@ public class App {
         // ClasesJava.ejemplo01();
         // ClasesJava.ejemplo02();
         // ClasesJava.ejemplo03();
-        ClasesJava.ejemplo04();
+        // ClasesJava.ejemplo04();
+        ClasesJava.ejemplo05();
 
 
 
