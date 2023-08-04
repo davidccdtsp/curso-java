@@ -76,7 +76,7 @@ public class TiposPrimitivos {
     int variableInt = 2147483647;
 
     // Declaraciones erroneas
-    // int variableInt2 = 2147483649L;
+    // int variableInt2 = 214748364L;
     // long variableLong2 = 2147483649;
 
     System.out.println("variableLong = " + variableLong);
