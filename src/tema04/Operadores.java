@@ -207,7 +207,7 @@ public class Operadores {
 
   public static void bitShift() {
 
-    int valorA = 21; // En binario -> 101010
+    int valorA = 21; // En binario -> 10101
 
     System.out.println("A = " + Integer.toBinaryString(valorA));
     int resultado = valorA >> 2;
