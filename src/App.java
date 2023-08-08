@@ -4,16 +4,16 @@ import tema04.Operadores;
 import tema06.*;
 import tema07.ControlFlujo;
 import tema08.*;
+import tema09.ClasesAnidadas;
 
 public class App {
 
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
 
         // TiposPrimitivos.ejemplo01();
         // TiposPrimitivos.ejemplo02();
         // TiposPrimitivos.ejemplo03();
-        TiposPrimitivos.ejemplo04();
+        // TiposPrimitivos.ejemplo04();
         // TiposPrimitivos.ejemplo05();
         // TiposPrimitivos.ejemplo06();
         // TiposPrimitivos.ejemplo07();
@@ -52,6 +52,12 @@ public class App {
         // ClasesJava.ejemplo03();
         // ClasesJava.ejemplo04();
         // ClasesJava.ejemplo05();
+
+        // ClasesAnidadas.ejemplo01();
+        // ClasesAnidadas.ejemplo02();
+        // ClasesAnidadas.ejemplo03();
+        // ClasesAnidadas.ejemplo04();
+        ClasesAnidadas.ejemplo05();
 
 
 
