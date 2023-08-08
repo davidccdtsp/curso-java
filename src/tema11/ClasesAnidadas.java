@@ -1,6 +1,6 @@
-package tema09;
+package tema11;
 
-import tema09.ClaseExterna.ClaseAnidadaEstatica;
+import tema11.ClaseExterna.ClaseAnidadaEstatica;
 
 public class ClasesAnidadas {
 

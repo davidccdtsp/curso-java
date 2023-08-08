@@ -1,4 +1,4 @@
-package tema09;
+package tema11;
 
 class ClaseExterna {
 
