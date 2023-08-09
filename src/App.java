@@ -4,7 +4,8 @@ import tema04.Operadores;
 import tema06.*;
 import tema07.ControlFlujo;
 import tema08.*;
-import tema09.ClasesAnidadas;
+import tema09.Herencia;
+import tema11.ClasesAnidadas;
 
 public class App {
 
@@ -57,10 +58,14 @@ public class App {
         // ClasesAnidadas.ejemplo02();
         // ClasesAnidadas.ejemplo03();
         // ClasesAnidadas.ejemplo04();
-        ClasesAnidadas.ejemplo05();
+        // ClasesAnidadas.ejemplo05();
 
-
-
+        Herencia.ejemplo01();
+        Herencia.ejemplo02();
+        Herencia.ejemplo03();
+        Herencia.ejemplo04();
+        Herencia.ejemplo05();
+        Herencia.ejemplo06();
 
 
     }
