@@ -21,9 +21,7 @@ public class SubClase extends SuperClase {
     return "Metodo estatico en SubClase";
   }
 
-
   // void metodo2() {  // Error al tratar de sobreescribir un metodo final
   // }
-
 
 }

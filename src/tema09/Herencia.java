@@ -101,4 +101,108 @@ public class Herencia {
     subClase.mostarAtributoOculto();
   }
 
+  public static void ejemplo07(){
+    // Metodos de la clase Objects
+
+    // toString()
+    Vehiculo unVehiculo = new Vehiculo(20, 1200);
+    System.out.println();
+    System.out.println("Creando objeto de la clase Vehiculo:");
+    System.out.println(unVehiculo);
+
+    // equals()
+    Vehiculo otroVehiculo = new Vehiculo(20, 1300);
+    Vehiculo vehiculoIgual = new Vehiculo(20, 1200);
+
+    System.out.println();
+    System.out.println("Creando dos vehiculos:");
+    System.out.println(otroVehiculo);
+    System.out.println(vehiculoIgual);
+
+    System.out.println();
+    System.out.println("Comparando vehiculos");
+    if (unVehiculo.equals(vehiculoIgual)) {
+      System.out.println(unVehiculo);
+      System.out.println("Es IGUAL al");
+      System.out.println(vehiculoIgual);
+    } else {
+      System.out.println(unVehiculo);
+      System.out.println("NO Es IGUAL al");
+      System.out.println(vehiculoIgual);
+    }
+
+    System.out.println();
+    System.out.println("Comparando vehiculos");
+    if (unVehiculo.equals(otroVehiculo)) {
+      System.out.println(unVehiculo);
+      System.out.println("Es IGUAL al");
+      System.out.println(otroVehiculo);
+    } else {
+      System.out.println(unVehiculo);
+      System.out.println("NO Es IGUAL al");
+      System.out.println(otroVehiculo);
+    }
+
+    // hashCode()
+    boolean resultado = (unVehiculo.hashCode() == vehiculoIgual.hashCode());
+
+    System.out.println();
+    System.out.println(resultado);
+
+    resultado = (unVehiculo.hashCode() == otroVehiculo.hashCode());
+
+    System.out.println(resultado);
+
+
+    // getClass()
+
+    String cadena = "Pelicano";
+    Number numero = 23;
+    SubClase subclase = new SubClase();
+
+    Class claseCadena = cadena.getClass();
+    Class claseNumero = numero.getClass();
+    Class claseSub = subclase.getClass();
+
+    System.out.println();
+    System.out.println(claseCadena);
+    System.out.println(claseNumero);
+    System.out.println(claseSub);
+    System.out.println(claseSub.getSimpleName());
+    System.out.println(claseSub.getSuperclass());
+
+    // clone()
+
+    Persona hija = new Persona("Ada Lovelace");
+    Persona padre = new Persona("Lord Byron", hija);
+
+    Persona clonPadre = padre.clone();
+
+    System.out.println();
+    System.out.println(padre + " " + padre.hashCode());
+    System.out.println(clonPadre + " " + clonPadre.hashCode());
+
+    clonPadre.setNombre("George Gordon Byron");
+    hija = clonPadre.getHijo();
+    hija.setNombre("Augusta Adad King");
+    System.out.println(padre);
+    System.out.println(clonPadre);
+
+
+
+    //  finalize()
+    // padre.finalize();
+    Persona persona = new Persona("Lord Byron");
+    persona = null;
+    System.gc();          // Llama al recolector de basura
+
+    try{
+      Thread.sleep(5000);       // Espera 5 segundos
+    } catch (InterruptedException e){
+      e.printStackTrace();
+    }
+
+
+  }
+
 }
