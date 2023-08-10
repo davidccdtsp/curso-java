@@ -101,7 +101,7 @@ public class Herencia {
     subClase.mostarAtributoOculto();
   }
 
-  public static void ejemplo07(){
+  public static void ejemplo07() {
     // Metodos de la clase Objects
 
     // toString()
@@ -190,19 +190,28 @@ public class Herencia {
 
 
 
-    //  finalize()
+    // finalize()
     // padre.finalize();
     Persona persona = new Persona("Lord Byron");
     persona = null;
-    System.gc();          // Llama al recolector de basura
+    System.gc(); // Llama al recolector de basura
 
-    try{
-      Thread.sleep(5000);       // Espera 5 segundos
-    } catch (InterruptedException e){
+    try {
+      Thread.sleep(5000); // Espera 5 segundos
+    } catch (InterruptedException e) {
       e.printStackTrace();
     }
 
 
+  }
+
+  public static void ejemplo08() {
+
+    NuevaClase objeto = new NuevaClase();
+
+    System.out.println();
+    System.out.println("Creando objeto de la case NuevaClase que hereda de ClaseAbstracta");
+    objeto.foo();
   }
 
 }

@@ -67,6 +67,7 @@ public class App {
         Herencia.ejemplo05();
         Herencia.ejemplo06();
         Herencia.ejemplo07();
+        Herencia.ejemplo08();
 
     }
 }
