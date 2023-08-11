@@ -5,6 +5,7 @@ import tema06.*;
 import tema07.ControlFlujo;
 import tema08.*;
 import tema09.Herencia;
+import tema10.interfaces.Interfaces;
 import tema11.ClasesAnidadas;
 
 public class App {
@@ -60,14 +61,21 @@ public class App {
         // ClasesAnidadas.ejemplo04();
         // ClasesAnidadas.ejemplo05();
 
-        Herencia.ejemplo01();
-        Herencia.ejemplo02();
-        Herencia.ejemplo03();
-        Herencia.ejemplo04();
-        Herencia.ejemplo05();
-        Herencia.ejemplo06();
-        Herencia.ejemplo07();
-        Herencia.ejemplo08();
+        // Herencia.ejemplo01();
+        // Herencia.ejemplo02();
+        // Herencia.ejemplo03();
+        // Herencia.ejemplo04();
+        // Herencia.ejemplo05();
+        // Herencia.ejemplo06();
+        // Herencia.ejemplo07();
+        // Herencia.ejemplo08();
+
+        Interfaces.ejemplo01();
+        Interfaces.ejemplo02();
+        Interfaces.ejemplo03();
+        Interfaces.ejemplo04();
+        Interfaces.ejemplo05();
+
 
     }
 }
