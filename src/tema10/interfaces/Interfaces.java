@@ -1,0 +1,109 @@
+package tema10.interfaces;
+
+import java.util.Collection;
+import java.util.List;
+import tema10.Bizum;
+import tema10.MiClase;
+
+public class Interfaces {
+
+  public static void ejemplo01() {
+    // Implementacion de una interfaz
+
+    InterfaceCartera miCartera = new Bizum();
+    // Bizum miCartera = new Bizum();
+
+    System.out.println();
+    System.out.println("Ingresando 1000.00€");
+    miCartera.ingresarFondos(1000, "uno");
+    float saldo = miCartera.consultarFondos("uno");
+    System.out.println("Nuevo saldo: " + saldo);
+    System.out.println("Enviando 100.50€ a la cuenta destino");
+    saldo = miCartera.enviarFondos(100.50f, "uno", "destino");
+    System.out.println("Nuevo saldo: " + saldo);
+
+  };
+
+  public static void ejemplo02() {
+
+    // Llamando a metodo estatico
+    System.out.println();
+    System.out.println("Llamando a metodo estatico de interfaz");
+    InterfazPrueba.metodoEstatico();
+
+
+  };
+
+  public static void ejemplo03() {
+    // Ejemplo implementacion interfaz
+
+    MiClase miClase = new MiClase();
+
+    int valor = miClase.foo();
+
+    System.out.println();
+    System.out.println("Llamando a metodo default");
+    System.out.println(valor);
+    System.out.println("Llamando a metodo implementado");
+    miClase.metodo();
+  };
+
+  public static void ejemplo04() {
+    // Sobreescritura metodos default
+
+    class ClaseA implements A {
+    };
+    class ClaseB implements B {
+    };
+    class ClaseC implements C {
+      public void foo() {
+        System.out.println("Metodo foo redeclarado en C, ahora es abstract");
+      }
+    };
+
+    ClaseA objetoA = new ClaseA();
+    ClaseB objetoB = new ClaseB();
+    ClaseC objetoC = new ClaseC();
+
+    System.out.println();
+    System.out.println(
+        "Se crean tres objetos a, b y c, los cuyas clases implementan las interfaces A, B y C");
+    objetoA.foo(); // Metodo original
+    objetoB.foo(); // Metodo redefinido
+    objetoC.foo(); // Metodo redeclarado
+
+  };
+
+  public static void ejemplo05() {
+    // Interfacs como tipos
+
+    class ClaseA implements A {
+      public void metodoA() {
+        System.out.println("Metodo propio de la ClaseA");
+      };
+    };
+
+    class ClaseB implements A {
+      public void metodoB() {
+        System.out.println("Metodo propio de la ClaseB");
+      };
+    };
+
+    A referencia;
+    ClaseA objetoA = new ClaseA();
+    ClaseB objetoB = new ClaseB();
+    referencia = objetoA;
+
+    System.out.println();
+    objetoA.metodoA();   
+    objetoA.foo();
+    objetoB.metodoB();
+    objetoB.foo();
+    referencia.foo();
+    // referencia.metodoA();   // Error, metodo no definido
+
+  };
+
+
+
+}
