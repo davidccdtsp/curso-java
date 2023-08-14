@@ -75,6 +75,7 @@ public class App {
         Interfaces.ejemplo03();
         Interfaces.ejemplo04();
         Interfaces.ejemplo05();
+        Interfaces.ejemplo06();
 
 
     }

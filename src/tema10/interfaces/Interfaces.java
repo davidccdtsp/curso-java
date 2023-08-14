@@ -105,5 +105,17 @@ public class Interfaces {
   };
 
 
+  public static void ejemplo06(){
+    // Interfaces Sealed
+
+    // class ClaseA implements InterfazSealed{};   // Error, ClaseA no permitida
+    class ClaseA implements A{};
+    
+
+    System.out.println();
+
+  };
+
+
 
 }
