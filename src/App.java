@@ -7,6 +7,7 @@ import tema08.*;
 import tema09.Herencia;
 import tema10.interfaces.Interfaces;
 import tema11.ClasesAnidadas;
+import tema12.Genericos;
 
 public class App {
 
@@ -70,13 +71,23 @@ public class App {
         // Herencia.ejemplo07();
         // Herencia.ejemplo08();
 
-        Interfaces.ejemplo01();
-        Interfaces.ejemplo02();
-        Interfaces.ejemplo03();
-        Interfaces.ejemplo04();
-        Interfaces.ejemplo05();
-        Interfaces.ejemplo06();
+        // Interfaces.ejemplo01();
+        // Interfaces.ejemplo02();
+        // Interfaces.ejemplo03();
+        // Interfaces.ejemplo04();
+        // Interfaces.ejemplo05();
+        // Interfaces.ejemplo06();
 
+        // Genericos.ejemplo01();
+        // Genericos.ejemplo02();
+        // Genericos.ejemplo03();
+        // Genericos.ejemplo04();
+        // Genericos.ejemplo05();
+        // Genericos.ejemplo06();
+        // Genericos.ejemplo07();
+        // Genericos.ejemplo08();
+        Genericos.ejemplo09();
+        Genericos.ejemplo10();
 
     }
 }
