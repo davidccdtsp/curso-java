@@ -1,5 +1,8 @@
 package tema12;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import tema12.interfaces.InterfazA;
 import tema12.interfaces.InterfazB;
 import tema12.interfaces.InterfazC;
@@ -216,39 +219,39 @@ public class Genericos {
         return new CajaGenerica<T>();
       }
 
-      static <T> void desempaquetar(CajaGenerica<T> caja){
-        System.out.println("Desempaquetando caja del tipo "+caja.getClass().getName());
-      } 
+      static <T> void desempaquetar(CajaGenerica<T> caja) {
+        System.out.println("Desempaquetando caja del tipo " + caja.getClass().getName());
+      }
     };
 
     System.out.println();
 
-    Demo.<Double>foo(Double.valueOf(0.123));  // Sin inferencia de tipos
-    // Demo.<Double>foo("Error");                // Error, Double vs String
-    Demo.foo(Integer.valueOf(11));            // Integer
-    Demo.foo(1);                              // Integer
-    Demo.foo("Hola");                         // String
+    Demo.<Double>foo(Double.valueOf(0.123)); // Sin inferencia de tipos
+    // Demo.<Double>foo("Error"); // Error, Double vs String
+    Demo.foo(Integer.valueOf(11)); // Integer
+    Demo.foo(1); // Integer
+    Demo.foo("Hola"); // String
 
     System.out.println();
     System.out.println("Usando inferencia en constructores");
 
     // Inferencia en instanciacion de clases
-    CajaGenerica<String> cajaString = new CajaGenerica<String>();      // Sin inferencia
-    CajaGenerica<String> cajaString2 = new CajaGenerica<>();           // Con inferencia: String
-    // CajaGenerica<> cajaString3 = new CajaGenerica<String>();        // Error
+    CajaGenerica<String> cajaString = new CajaGenerica<String>(); // Sin inferencia
+    CajaGenerica<String> cajaString2 = new CajaGenerica<>(); // Con inferencia: String
+    // CajaGenerica<> cajaString3 = new CajaGenerica<String>(); // Error
     // CajaGenerica<String> cajaString4 = new CajaGenerica<Integer>(); // Error
 
     System.out.println();
-    CajaGenerica<String> caja1 = Demo.<String>empaquetar("String");   // Sin inferencia
-    CajaGenerica<String> caja2 = Demo.empaquetar("Texto");            // String -> CajaGenerica<String>
-    CajaGenerica<Integer> caja3 = Demo.empaquetar(22);                // Integer -> CajaGenerica<Integer>
-    // CajaGenerica<> caja4 = Demo.empaquetar("Texto");                  // Error
-    // CajaGenerica<Integer> caja5 = Demo.empaquetar("Texto");           // Error
+    CajaGenerica<String> caja1 = Demo.<String>empaquetar("String"); // Sin inferencia
+    CajaGenerica<String> caja2 = Demo.empaquetar("Texto"); // String -> CajaGenerica<String>
+    CajaGenerica<Integer> caja3 = Demo.empaquetar(22); // Integer -> CajaGenerica<Integer>
+    // CajaGenerica<> caja4 = Demo.empaquetar("Texto"); // Error
+    // CajaGenerica<Integer> caja5 = Demo.empaquetar("Texto"); // Error
 
     System.out.println();
 
     CajaGenerica caja = Demo.empaquetar("Adios");
-    Demo.desempaquetar(caja);                                             // Desde Java SE8, infiere CajaGenerica<String>
+    Demo.desempaquetar(caja); // Desde Java SE8, infiere CajaGenerica<String>
 
   };
 
@@ -258,26 +261,26 @@ public class Genericos {
     class Wildcard {
 
       // Metodo con comodin acotado
-      static void metodo1(CajaGenerica<? extends Number> caja){
+      static void metodo1(CajaGenerica<? extends Number> caja) {
         System.out.println("Ejecutando metodo con metodo1(CajaGenerica<? extends Number> num)");
       };
 
-      static void metodo2(CajaGenerica<Number> caja){
+      static void metodo2(CajaGenerica<Number> caja) {
         System.out.println("Ejecutando metodo metodo2(CajaGenerica<Number> num)");
       };
 
       // Metodo con comodin no acotado, emplea el metodo hashCode de Object
-      static void metodo3(CajaGenerica<?> caja){
-        System.out.println("Imprimiendo hashCode: "+caja.hashCode());
+      static void metodo3(CajaGenerica<?> caja) {
+        System.out.println("Imprimiendo hashCode: " + caja.hashCode());
       }
 
       // Metodo con comodin no acotado
-      static void metodo4(CajaGenerica<?> caja){
+      static void metodo4(CajaGenerica<?> caja) {
         System.out.println(caja.describir());
       }
 
       // Metodo con comodin acotado inferiormente
-      static void metodo5(CajaGenerica<? super Number> caja){
+      static void metodo5(CajaGenerica<? super Number> caja) {
         System.out.println("Ejecutando metodo metodo5(CajaGenerica<?> caja)");
       };
     };
@@ -286,10 +289,11 @@ public class Genericos {
     CajaGenerica<Number> cajaNumeros = new CajaGenerica<>();
 
     System.out.println();
-    System.out.println("Creadas CajaGenerica<Integer> cajaEnteros y CajaGenerica<Number> cajaNumeros");
+    System.out
+        .println("Creadas CajaGenerica<Integer> cajaEnteros y CajaGenerica<Number> cajaNumeros");
 
     Wildcard.metodo1(cajaNumeros);
-    Wildcard.metodo1(cajaEnteros);    // permitido, Integer es subclase de Number
+    Wildcard.metodo1(cajaEnteros); // permitido, Integer es subclase de Number
     Wildcard.metodo2(cajaNumeros);
 
     CajaGenerica<String> cajaCadenas = new CajaGenerica<>();
@@ -313,8 +317,82 @@ public class Genericos {
     System.out.println();
     Wildcard.metodo5(cajaNumeros);
     Wildcard.metodo5(cajaObjetos);
-    // Wildcard.metodo5(cajaEnteros);    // Error, Integer es subclase de Number
+    // Wildcard.metodo5(cajaEnteros); // Error, Integer es subclase de Number
 
 
-  }
+  };
+
+  public static void ejemplo10() {
+    // Restricciones
+
+    class Demo<T> {
+
+      // static T propEstatica; // Error, No es posible declarar tipos estaticos con Tipos T
+      
+      // public <E> void metodo(E parametro){
+      //   E objeto = new E(); // Error, no es posible instanciar Tipos
+      // };
+
+      public <E> void metodoOK(E parametro, Class<E> clase) throws Exception{
+        E objeto = clase.getDeclaredConstructor().newInstance();  // OK
+      };
+
+
+
+
+      <U> void foo(List<U> lista) {          // Error de compilacion       
+        // if (lista instanceof ArrayList<Integer>) {
+        // }; 
+        
+      }
+
+      void fooOk(List<?> lista) {           // OK
+        if (lista instanceof ArrayList<?>) {
+        } ; 
+
+      }
+
+      // No es posible crear arrays de tipos parametrizados
+      // Demo<Integer>[] arrayDemos = new Demo<Integer>[2];  // Error en tiempo de compilacion
+  
+      // Crear un array de un tipo parametro
+      <E> void crearArray(Class<E> clase){
+        E[] array = (E[]) Array.newInstance(clase, 5);
+      };
+
+    };
+
+    // Demo<int> generico = new Demo<>(); // Error, no es posible emplear tipos primitivos
+    Demo<Integer> genericoOK = new Demo();
+
+
+    // Demo<Number> demoNum = (Demo<Number>) genericoOK; // Erro al tratar de castear tipos parmetrizados
+
+    // class DemoException<T> extends Exception {};  // Error, no se pueden crear genericos que extiendan Exception
+    // class DemoThrowable<T> extends Throwable {};  // Error, no se pueden crear genericos que extiendan Throwable
+
+    class DemoCatch<E extends Exception> {
+
+      // public static <T extends Exception, J> void foo() {
+      //   try {
+      //           // ...
+      //   } catch (T e) {   // Error de compilacion
+      //       // ...
+      //   };
+      // } 
+
+      public void foo() throws E {  // OK
+        // ...
+      }
+    };
+
+    
+    class DemoRaw {
+      public void foo(Demo<String> parametro){};  
+      // public void foo(Demo<Integer> parametro){}; // Error, no es posible la sobrecarga sobre el mismo tipo Raw
+    };
+
+  };
+
+
 }

@@ -87,6 +87,7 @@ public class App {
         // Genericos.ejemplo07();
         // Genericos.ejemplo08();
         Genericos.ejemplo09();
+        Genericos.ejemplo10();
 
     }
 }
