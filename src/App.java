@@ -90,7 +90,12 @@ public class App {
         // Genericos.ejemplo09();
         // Genericos.ejemplo10();
 
-        ExpresionesLambda.ejemplo01();
+        // ExpresionesLambda.ejemplo01();
+        // ExpresionesLambda.ejemplo02();
+        // ExpresionesLambda.ejemplo03();
+        // ExpresionesLambda.ejemplo04();
+        // ExpresionesLambda.ejemplo05();
+        ExpresionesLambda.ejemplo06();
 
     }
 }
