@@ -95,7 +95,10 @@ public class App {
         // ExpresionesLambda.ejemplo03();
         // ExpresionesLambda.ejemplo04();
         // ExpresionesLambda.ejemplo05();
-        ExpresionesLambda.ejemplo06();
+        // ExpresionesLambda.ejemplo06();
+        // ExpresionesLambda.ejemplo07();
+        // ExpresionesLambda.ejemplo08();
+        ExpresionesLambda.ejemplo09();
 
     }
 }

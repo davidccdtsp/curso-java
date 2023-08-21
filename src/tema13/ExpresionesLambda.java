@@ -2,18 +2,23 @@ package tema13;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
 import java.util.function.Consumer;
+import java.util.function.DoubleUnaryOperator;
 import java.util.function.Function;
 import java.util.function.IntConsumer;
 import java.util.function.IntPredicate;
 import java.util.function.IntSupplier;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.logging.Logger;
 
 public class ExpresionesLambda {
 
@@ -176,24 +181,24 @@ public class ExpresionesLambda {
   }
 
   public static void ejemplo06() {
-    //  Function 
+    // Function
     System.out.println();
     System.out.println("Uso de Function<T,R> para mapeo de objetos");
 
     Function<String, Integer> mapLongitud = s -> s.length();
     String palabra = "Hello";
-    int longitud = mapLongitud.apply(palabra);  // 5
-    
-    System.out.println("Longitud de la palabara 'Hello'= "+longitud);
+    int longitud = mapLongitud.apply(palabra); // 5
 
-    List<Integer> numeros = List.of(1,2,3,4,5);
+    System.out.println("Longitud de la palabara 'Hello'= " + longitud);
+
+    List<Integer> numeros = List.of(1, 2, 3, 4, 5);
     List<Integer> arrayListNumeros = new ArrayList<>(numeros);
 
-    BiFunction<List<Integer>,Integer,List<Integer>> mapInicializa = (entrada, valor) -> {
-      List<Integer> nuevaLista = new ArrayList<>(entrada);    // Copia de la lista original
-      for(int i=0; i<nuevaLista.size(); i++)
+    BiFunction<List<Integer>, Integer, List<Integer>> mapInicializa = (entrada, valor) -> {
+      List<Integer> nuevaLista = new ArrayList<>(entrada); // Copia de la lista original
+      for (int i = 0; i < nuevaLista.size(); i++)
         nuevaLista.set(i, valor);
-      return nuevaLista; 
+      return nuevaLista;
     };
 
     System.out.println();
@@ -201,6 +206,220 @@ public class ExpresionesLambda {
     System.out.println(arrayListNumeros);
     List<Integer> arryListInicializado = mapInicializa.apply(arrayListNumeros, 3);
     System.out.println(arryListInicializado);
+
+  }
+
+  public static void ejemplo07() {
+    // Lambdas com referencias a metodos
+
+    class Demo {
+
+      static final Demo objetoDemo = new Demo("Objeto demo");
+      String palabra;
+
+      public Demo(String palabra) {
+        this.palabra = palabra;
+      }
+
+      static void escribe(String valor) {
+        System.out.println("Escribiendo " + valor.toUpperCase());
+      }
+
+      String getPalabra() {
+        return palabra;
+      }
+
+      void print(String s) {
+        System.out.println(s);
+      }
+
+    }
+
+    Consumer<String> impresora = System.out::println;
+    impresora.accept("hola");
+
+    // Consumer<String> escribe = s -> Demo.escribe(s);
+    Consumer<String> escribe = Demo::escribe;
+    DoubleUnaryOperator sqrt = Math::sqrt;
+
+    System.out.println("Uso de expresiones lambda como referencias a metodos");
+    System.out.println("Consumer<String> escribe = Demo::escribe;");
+    escribe.accept("Hola");
+
+    double resultado = sqrt.applyAsDouble(64);
+    System.out.println("\nDoubleUnaryOperator sqrt = Math::sqrt;");
+    System.out.println("raiz de 64 = " + resultado);
+
+
+    // Function<Demo,String> getPalabra = d -> d.getPalabra();
+    Function<Demo, String> getPalabra = Demo::getPalabra;
+    Demo demo = new Demo("Lambdas");
+    String palabra = getPalabra.apply(demo);
+
+    System.out.println("\nUso de expresiones lambda sobre metodos no enlazados");
+    System.out.println("Function<Demo,String> getPalabra = Demo::getPalabra");
+    System.out.println(palabra);
+
+    // BiFunction<String, String, Integer> indexOf = (sentence, word) -> sentence.indexOf(word);
+    BiFunction<String, String, Integer> indexOf = String::indexOf;
+    int indice = indexOf.apply("hola mundo", "mundo");
+
+    System.out.println("\nEjemplo usando BiFuncion<>");
+    System.out.println(indice);
+
+    System.out.println("\nEjemplo de referencia enlazada a metodo");
+
+    // Consumer<String> demoPrint = s -> Demo.objetoDemo.print(s);
+    Consumer<String> demoPrint = Demo.objetoDemo::print;
+    demoPrint.accept("Java");
+
+    System.out.println("\nEjemplo de referencia a constructor");
+
+    // Function<String,Demo> constructorDemo = s -> new Demo(s);
+    Function<String, Demo> constructorDemo = Demo::new;
+    Demo nuevoDemo = constructorDemo.apply("palabra");
+
+    System.out.println("Creado objeto Demo(" + nuevoDemo.getPalabra() + ")");
+
+    // Ejemplo con Supplier para generar ArrayList
+    // Supplier<List<String>> newListOfStrings = () -> new ArrayList<>();
+    Supplier<List<String>> newListOfStrings = ArrayList::new;
+    List<String> nuevaLista = newListOfStrings.get();
+
+  }
+
+  public static void ejemplo08() {
+    // Combinando lambdas
+
+    Predicate<String> nonNull = s -> s != null;
+    Predicate<String> nonEmpty = s -> !s.isEmpty();
+    Predicate<String> shorterThan5 = s -> s.length() < 5;
+
+    Predicate<String> p = nonNull.and(nonEmpty).and(shorterThan5);
+    boolean resultado = p.test("Nube");
+
+
+    System.out.println();
+    System.out
+        .println("Creada lambda para comprobar que un string no es nulo, menor que 5 y no vacio");
+    System.out.println("Nube -> " + p.test("Nube"));
+    System.out.println("Nube -> " + p.test("Ballena"));
+    System.out.println("Nube -> " + p.test(""));
+
+    Predicate<String> isNull = Objects::isNull;
+    Predicate<String> isEmpty = String::isEmpty;
+    Predicate<String> isNullOrEmpty = isNull.or(isEmpty);
+    Predicate<String> isNotNullNorEmpty = isNullOrEmpty.negate();
+
+    p = isNotNullNorEmpty.and(shorterThan5);
+
+    System.out.println();
+    System.out.println("Creada lambda para comprobar que un string NO es null o vacio");
+    System.out.println("Nube -> " + p.test("Nube"));
+    System.out.println("Nube -> " + p.test(null));
+    System.out.println("Nube -> " + p.test(""));
+
+    Predicate<String> isEqualToDuke = Predicate.isEqual("Duke");
+
+    Predicate<Collection<String>> colIsEmpty = Collection::isEmpty;
+    Predicate<Collection<String>> colIsNotEmpty = Predicate.not(colIsEmpty);
+
+    Collection<String> lista = new ArrayList<String>();
+    colIsEmpty.test(lista);
+    colIsNotEmpty.test(lista);
+
+    System.out.println("\nCombinando lambdas usando metodos factoria");
+    System.out.println("Creada una lista de String");
+    System.out.println("La lista es vacia: " + colIsEmpty.test(lista));
+    System.out.println("La lista NO es vacia: " + colIsNotEmpty.test(lista));
+
+    // Consumer -> andThen
+    Logger logger = Logger.getLogger("MyApplicationLogger");
+    Consumer<String> log = message -> logger.info(message);
+    Consumer<String> print = message -> System.out.println(message);
+
+    Consumer<String> printAndLog = log.andThen(print);
+
+    System.out.println("\nEncadenndo lambdas con Consumer andThen");
+    printAndLog.accept("HOLA");
+
+    // Function
+    Consumer<String> mayusculas = palabra -> System.out.println(palabra.toUpperCase());
+    Consumer<String> imprime = palabra -> System.out.println(palabra);
+
+    Consumer<String> imprimeMayus = mayusculas.andThen(imprime);
+    imprimeMayus.accept("cadena en minusculas");
+
+    System.out.println("\nCombiando y encadenando metodos default ");
+
+    Function<String, String> minusculas = palabra -> palabra.toLowerCase();
+    Function<String, String> concatena = palabra -> palabra.concat("-SUFIJO");
+
+    Function<String, String> combinado = minusculas.andThen(concatena);
+    String resul = combinado.apply("tEXto");
+
+    System.out.println(resul);
+
+    Function<String, String> combinadoB = minusculas.compose(concatena);
+    var cosa = combinadoB.apply("tEXto");
+
+    System.out.println(cosa);
+
+  }
+
+  public static void ejemplo09() {
+    // Comparadores
+    class Demo {
+      int valor;
+      int valor2;
+
+      Demo(int valor, int valor2){
+        this.valor = valor;
+        this.valor2 = valor2;
+      }
+
+      Demo(int valor) {
+        this(valor,0);
+      }
+
+
+      Integer mod7(){
+        return valor%7; //Mod 7  
+      }
+
+      
+    }
+
+    // Comparator<Integer> comparator = (i1, i2) -> Integer.compare(i1, i2);
+    Comparator<Integer> comparator = Integer::compare;
+    int resultado = comparator.compare(12, 31);
+
+    System.out.println("\nImplemntando un comparador con la Interfaz Compare");
+    System.out.println("12 comparado con 31 = " + resultado);
+
+    Comparator<Demo> comparadorDemos = (d1, d2) -> Integer.compare(d1.valor, d2.valor);
+    resultado = comparadorDemos.compare(new Demo(12), new Demo(31));
+
+    System.out.println("\nImplemntando un comparador de objetos DEMO");
+    System.out.println("Demo(12) comparado con Demo(31) = " + resultado);
+
+
+    // Comparator<Demo> comparadorDemosMod7 = (d1,d2) -> Integer.compare(d1.mod7(), d2.mod7());
+    Comparator<Demo> comparadorDemosMod7 = Comparator.comparing(Demo::mod7);
+    resultado = comparadorDemosMod7.compare(new Demo(12), new Demo(31));
+
+    System.out.println("\nImplementando un comparador con comparing()");
+    System.out.println("Comparando modulo 7. Demo(12) comparado con Demo(31) = "+resultado);
+
+    // Encadenando comparadores
+
+    Comparator<Demo> comparadorDemos2 = (d1, d2) -> Integer.compare(d1.valor2, d2.valor2);
+    Comparator<Demo> comparadorEncadenado = comparadorDemos.thenComparing(comparadorDemos2);
+    resultado = comparadorEncadenado.compare(new Demo(1,12), new Demo(1,5));
+
+    System.out.println("\nEncadenando comparadores");
+    System.out.println("Demo(1,12) compare Demo(1,5) = "+resultado);
+
 
 
   }
