@@ -373,21 +373,19 @@ public class ExpresionesLambda {
       int valor;
       int valor2;
 
-      Demo(int valor, int valor2){
+      Demo(int valor, int valor2) {
         this.valor = valor;
         this.valor2 = valor2;
       }
 
       Demo(int valor) {
-        this(valor,0);
+        this(valor, 0);
       }
 
 
-      Integer mod7(){
-        return valor%7; //Mod 7  
+      Integer mod7() {
+        return valor % 7; // Mod 7
       }
-
-      
     }
 
     // Comparator<Integer> comparator = (i1, i2) -> Integer.compare(i1, i2);
@@ -403,25 +401,127 @@ public class ExpresionesLambda {
     System.out.println("\nImplemntando un comparador de objetos DEMO");
     System.out.println("Demo(12) comparado con Demo(31) = " + resultado);
 
-
     // Comparator<Demo> comparadorDemosMod7 = (d1,d2) -> Integer.compare(d1.mod7(), d2.mod7());
     Comparator<Demo> comparadorDemosMod7 = Comparator.comparing(Demo::mod7);
     resultado = comparadorDemosMod7.compare(new Demo(12), new Demo(31));
 
     System.out.println("\nImplementando un comparador con comparing()");
-    System.out.println("Comparando modulo 7. Demo(12) comparado con Demo(31) = "+resultado);
+    System.out.println("Comparando modulo 7. Demo(12) comparado con Demo(31) = " + resultado);
 
     // Encadenando comparadores
 
     Comparator<Demo> comparadorDemos2 = (d1, d2) -> Integer.compare(d1.valor2, d2.valor2);
     Comparator<Demo> comparadorEncadenado = comparadorDemos.thenComparing(comparadorDemos2);
-    resultado = comparadorEncadenado.compare(new Demo(1,12), new Demo(1,5));
+    resultado = comparadorEncadenado.compare(new Demo(1, 12), new Demo(1, 5));
 
     System.out.println("\nEncadenando comparadores");
-    System.out.println("Demo(1,12) compare Demo(1,5) = "+resultado);
+    System.out.println("Demo(1,12) compare Demo(1,5) = " + resultado);
+
+    // Usando orden natural con lambdas para comaprar
+    List<String> meses =
+        Arrays.asList("Java", "TypeScript", "Rust", "Go", "C++", "Switf", "Scala", "Haskell");
+    Comparator<String> ordenNatural = Comparator.naturalOrder();
+    Comparator<String> tamanoDespuesOrdenNatural =
+        Comparator.comparing(String::length).thenComparing(Comparator.naturalOrder());
+
+    System.out.println("\nList<String> original:");
+    System.out.println(meses);
+
+    meses.sort(ordenNatural);
+    System.out.println("\nOrdenado en base al orden natural de String");
+    System.out.println(meses);
+    meses.sort(tamanoDespuesOrdenNatural);
+    System.out.println("\nOrdenando en base al tamano y luego al orden natural");
+    System.out.println(meses);
+
+    class DemoComparable implements Comparable {
+      int valor;
+
+      DemoComparable(int valor) {
+        this.valor = valor;
+      }
+
+      int getValor() {
+        return valor;
+      }
+
+      @Override
+      public String toString() {
+        return "Demo-" + Integer.toString(valor);
+      }
+
+      @Override
+      public int compareTo(Object o) {
+        Integer val = valor;
+        if ((o instanceof DemoComparable)) {
+          DemoComparable demoComparable = (DemoComparable) o;
+          return val.compareTo(demoComparable.valor);
+        } else
+          return 0;
+      }
+    }
+
+    DemoComparable demoC1 = new DemoComparable(564);
+    DemoComparable demoC2 = new DemoComparable(456);
+    DemoComparable demoC3 = new DemoComparable(89);
+
+    List<DemoComparable> demos = Arrays.asList(demoC1, demoC2, demoC3);
+
+    Comparator<DemoComparable> demoComparableNatural = Comparator.naturalOrder();
+    Comparator<Integer> comparadorMod2 = (i1, i2) -> Integer.compare(i1 % 2, i2 % 2);
+    Comparator<DemoComparable> comparaMod2YNatural =
+        Comparator.comparing(DemoComparable::getValor, comparadorMod2)
+            .thenComparing(Comparator.naturalOrder());
 
 
+    System.out.println("\nList<DemoComparable>:");
+    System.out.println(demos);
+
+    demos.sort(demoComparableNatural);
+    System.out.println("\nOrdenando en base al orden natural");
+    System.out.println(demos);
+    demos.sort(comparaMod2YNatural);
+    System.out.println("\nOrdenando mod 2 y despues en base al orden natural");
+    System.out.println(demos);
+
+    List<String> dias =
+        Arrays.asList("lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo");
+    Comparator<String> stringNatural = Comparator.naturalOrder();
+
+
+    System.out.println("\nList<String>:");
+    System.out.println(dias);
+    dias.sort(stringNatural.reversed());
+    System.out.println("Ordenando inversamente:");
+    System.out.println(dias);
+
+
+    // Valores nulos
+    Comparator<String> comparadorA = (s1, s2) -> {
+      if (s1 == null && s2 != null)
+        return 1;
+      if (s1 != null && s2 == null)
+        return -1;
+      if (s1 == null && s2 == null)
+        return 0;
+      else
+        return s1.compareTo(s2);
+    };
+
+    Comparator<String> comparadorB = Comparator.nullsLast(Comparator.naturalOrder());
+
+    List<String> marcas =
+        Arrays.asList("Nvidia", "Apple", "Nike", null, "koenigsegg", null, "Primark");
+
+    System.out.println("List<String>:");
+    System.out.println(marcas);
+
+    marcas.sort(comparadorA);
+    System.out.println("Nulos al final con comparador complejo:");
+    System.out.println(marcas);
+    marcas.sort(comparadorB);
+    System.out.println("Nulos al final con nullLast:");
+    System.out.println(marcas);
 
   }
-
 }
