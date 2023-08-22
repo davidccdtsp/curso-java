@@ -8,6 +8,7 @@ import tema09.Herencia;
 import tema10.interfaces.Interfaces;
 import tema11.ClasesAnidadas;
 import tema12.Genericos;
+import tema13.ExpresionesLambda;
 
 public class App {
 
@@ -86,8 +87,18 @@ public class App {
         // Genericos.ejemplo06();
         // Genericos.ejemplo07();
         // Genericos.ejemplo08();
-        Genericos.ejemplo09();
-        Genericos.ejemplo10();
+        // Genericos.ejemplo09();
+        // Genericos.ejemplo10();
+
+        // ExpresionesLambda.ejemplo01();
+        // ExpresionesLambda.ejemplo02();
+        // ExpresionesLambda.ejemplo03();
+        // ExpresionesLambda.ejemplo04();
+        // ExpresionesLambda.ejemplo05();
+        // ExpresionesLambda.ejemplo06();
+        // ExpresionesLambda.ejemplo07();
+        // ExpresionesLambda.ejemplo08();
+        ExpresionesLambda.ejemplo09();
 
     }
 }
