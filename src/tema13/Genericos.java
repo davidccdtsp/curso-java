@@ -1,11 +1,11 @@
-package tema12;
+package tema13;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import tema12.interfaces.InterfazA;
-import tema12.interfaces.InterfazB;
-import tema12.interfaces.InterfazC;
+import tema13.interfaces.InterfazA;
+import tema13.interfaces.InterfazB;
+import tema13.interfaces.InterfazC;
 
 public class Genericos {
 

@@ -414,5 +414,28 @@ public class TiposPrimitivos {
     System.out.println("int sum = "+sum);
   }
 
+  public static void ejemplo11(){
+    // Var
+    class Demo{
+      // var propiedad = 12;   // Error, no puede ser una propiedad
+    }
+
+    var x = 100;    // int
+    var y = 1.90;   // double
+    var z = 'a';    // char
+    var p = "tanu"; // string
+    var q = false;  // boolean
+
+    System.out.println();
+    System.out.println("Ejemplo de uso de var");
+
+    System.out.println(x);
+    System.out.println(y);
+    System.out.println(z);
+    System.out.println(p);
+    System.out.println(q);
+
+  }
+
 
 }

@@ -7,8 +7,8 @@ import tema08.*;
 import tema09.Herencia;
 import tema10.interfaces.Interfaces;
 import tema11.ClasesAnidadas;
-import tema12.Genericos;
-import tema13.ExpresionesLambda;
+import tema13.Genericos;
+import tema14.ExpresionesLambda;
 
 public class App {
 
@@ -24,6 +24,7 @@ public class App {
         // TiposPrimitivos.ejemplo08();
         // TiposPrimitivos.ejemplo09();
         // TiposPrimitivos.ejemplo10();
+        
 
         // Vectores.ejemplo01();
         // Vectores.ejemplo02();
@@ -98,7 +99,7 @@ public class App {
         // ExpresionesLambda.ejemplo06();
         // ExpresionesLambda.ejemplo07();
         // ExpresionesLambda.ejemplo08();
-        ExpresionesLambda.ejemplo09();
+        // ExpresionesLambda.ejemplo09();
 
     }
 }

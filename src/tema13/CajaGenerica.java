@@ -1,4 +1,4 @@
-package tema12;
+package tema13;
 
 public class CajaGenerica<T> {
 

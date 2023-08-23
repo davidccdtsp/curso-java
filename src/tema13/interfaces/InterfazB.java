@@ -1,4 +1,4 @@
-package tema12.interfaces;
+package tema13.interfaces;
 
 public interface InterfazB {
   
