@@ -82,6 +82,9 @@ public class App {
         // Interfaces.ejemplo06();
         
         PaquetesYModulos.ejemplo01();
+        PaquetesYModulos.ejemplo02();
+        PaquetesYModulos.ejemplo03();
+        PaquetesYModulos.ejemplo04();
 
         // Genericos.ejemplo01();
         // Genericos.ejemplo02();
@@ -103,7 +106,6 @@ public class App {
         // ExpresionesLambda.ejemplo07();
         // ExpresionesLambda.ejemplo08();
         // ExpresionesLambda.ejemplo09();
-
 
     }
 }
