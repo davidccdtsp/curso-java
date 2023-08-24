@@ -7,6 +7,7 @@ import tema08.*;
 import tema09.Herencia;
 import tema10.interfaces.Interfaces;
 import tema11.ClasesAnidadas;
+import tema12.PaquetesYModulos;
 import tema13.Genericos;
 import tema14.ExpresionesLambda;
 
@@ -79,6 +80,8 @@ public class App {
         // Interfaces.ejemplo04();
         // Interfaces.ejemplo05();
         // Interfaces.ejemplo06();
+        
+        PaquetesYModulos.ejemplo01();
 
         // Genericos.ejemplo01();
         // Genericos.ejemplo02();
@@ -100,6 +103,7 @@ public class App {
         // ExpresionesLambda.ejemplo07();
         // ExpresionesLambda.ejemplo08();
         // ExpresionesLambda.ejemplo09();
+
 
     }
 }
