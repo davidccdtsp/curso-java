@@ -2,6 +2,7 @@ package tema12;
 
 import java.io.FileReader;  // Importa el miembro
 import java.math.*;         // Importa el paquete   
+import com.dataspartan.curso.java.Curso;
 import tema08.Planeta;
 // import tema12.dos.Planeta;  // Error colision
 import tema12.uno.Persona;  // Importa de subpaquete
@@ -37,6 +38,12 @@ public class PaquetesYModulos {
 
     double piA = PI;        // Importando static java.lang.Math.PI
     double piB = Math.PI;   // Impoortando java.lang.Math.*;
+  }
+
+  public static void ejemplo04(){
+    // Importando modulo
+    Curso curso = new Curso();
+    curso.presentar();
   }
   
 }
