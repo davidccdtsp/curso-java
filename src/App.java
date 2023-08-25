@@ -10,6 +10,7 @@ import tema11.ClasesAnidadas;
 import tema12.PaquetesYModulos;
 import tema13.Genericos;
 import tema14.ExpresionesLambda;
+import tema15.Excepciones;
 
 public class App {
 
@@ -108,6 +109,10 @@ public class App {
         // ExpresionesLambda.ejemplo07();
         // ExpresionesLambda.ejemplo08();
         // ExpresionesLambda.ejemplo09();
+
+        // Excepciones.ejemplo01();
+        // Excepciones.ejemplo02();
+        Excepciones.ejemplo03();
 
     }
 }
