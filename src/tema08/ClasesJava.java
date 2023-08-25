@@ -159,8 +159,10 @@ public class ClasesJava {
     System.out.println("Coche 2: " + coche2);
 
     System.out.println();
-    // System.out.println("La variable de clase Bicicleta.fabricadas = " + Bicicleta.fabricados);  // Error
-    System.out.println("La variable de clase Bicicleta.fabricadas = " + Bicicleta.unidadesFabricadas());
+    // System.out.println("La variable de clase Bicicleta.fabricadas = " + Bicicleta.fabricados); //
+    // Error
+    System.out
+        .println("La variable de clase Bicicleta.fabricadas = " + Bicicleta.unidadesFabricadas());
 
     System.out.println();
     Bicicleta bici1 = new Bicicleta("Transition Spire");
@@ -172,6 +174,44 @@ public class ClasesJava {
     System.out.println("Bicicleta 1: " + bici1);
     System.out.println("Bicicleta 2: " + bici2);
 
+
+  }
+
+  // Enums
+  public static void ejemplo06() {
+
+    System.out.println();
+    System.out.println("Creando enumerado Paises");
+
+    enum Pais {
+      USA, GBR, ESP, FRA, ITA, DEU
+    };
+    Pais pais = Pais.DEU;
+    int codigoPais = switch (pais) {
+      case USA -> 840;
+      case GBR -> 626;
+      case ESP -> 724;
+      case FRA -> 250;
+      case ITA -> 380;
+      case DEU -> 276;
+      default -> 0;
+    };
+
+    System.out.println("El codigo de pais para "+pais+" es "+codigoPais+" "+pais);
+
+  }
+
+  // Records
+  public static void ejemplo07() {
+
+    System.out.println();
+    System.out.println("Creando record de Pais");
+
+    Pais india = new Pais("Nueva Delhi", 1428);
+
+    System.out.println(india);
+    System.out
+        .println("india.poblacion = " + india.poblacion() + " india.capital =" + india.capital());
 
   }
 

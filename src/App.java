@@ -58,6 +58,8 @@ public class App {
         // ClasesJava.ejemplo03();
         // ClasesJava.ejemplo04();
         // ClasesJava.ejemplo05();
+        // ClasesJava.ejemplo06();
+        // ClasesJava.ejemplo07();
 
         // ClasesAnidadas.ejemplo01();
         // ClasesAnidadas.ejemplo02();
@@ -81,10 +83,10 @@ public class App {
         // Interfaces.ejemplo05();
         // Interfaces.ejemplo06();
         
-        PaquetesYModulos.ejemplo01();
-        PaquetesYModulos.ejemplo02();
-        PaquetesYModulos.ejemplo03();
-        PaquetesYModulos.ejemplo04();
+        // PaquetesYModulos.ejemplo01();
+        // PaquetesYModulos.ejemplo02();
+        // PaquetesYModulos.ejemplo03();
+        // PaquetesYModulos.ejemplo04();
 
         // Genericos.ejemplo01();
         // Genericos.ejemplo02();
