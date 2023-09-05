@@ -1,3 +1,4 @@
+import anexo.Colecciones;
 import tema02.TiposPrimitivos;
 import tema03.Vectores;
 import tema04.Operadores;
@@ -17,7 +18,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        // TiposPrimitivos.ejemplo01();
+        TiposPrimitivos.ejemplo01();
         // TiposPrimitivos.ejemplo02();
         // TiposPrimitivos.ejemplo03();
         // TiposPrimitivos.ejemplo04();
@@ -120,6 +121,13 @@ public class App {
         // JavaIO.ejemplo03();
         // JavaIO.ejemplo04();
         // JavaIO.ejemplo05();
+
+        // Anexo colecciones
+        // Colecciones.ejemplo01();
+        // Colecciones.ejemplo02();
+        // Colecciones.ejemplo03();
+        // Colecciones.ejemplo04();
+
 
     }
 }
