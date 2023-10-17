@@ -122,6 +122,9 @@ public class App {
         // JavaIO.ejemplo03();
         // JavaIO.ejemplo04();
         // JavaIO.ejemplo05();
+        // JavaIO.ejemplo06();
+        // JavaIO.ejemplo07();
+        // JavaIO.ejemplo08();
 
         // Anexo colecciones
         // Colecciones.ejemplo01();

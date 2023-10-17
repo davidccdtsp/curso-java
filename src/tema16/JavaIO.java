@@ -9,22 +9,28 @@ import java.nio.file.FileStore;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.PathMatcher;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileAttribute;
 import java.nio.file.attribute.PosixFilePermission;
 import java.nio.file.attribute.PosixFilePermissions;
+import java.util.Map;
 import java.util.Set;
 
 public class JavaIO {
 
   public static void ejemplo01() {
 
-    final String URI = "/home/david.cc/foo";
-    Path p1 = Paths.get(URI);
+
+    // Microsoft Windows syntax
+    // final String RUTA = "\"C:\\home\\joe\\foo\"";
+    final String RUTA = "/home/david.cc/foo";
+    Path p1 = Paths.get(RUTA);
 
     System.out.println();
     System.out.println("Creando un path a:");
@@ -36,6 +42,7 @@ public class JavaIO {
     System.out.format("getParent: %s%n", p1.getParent());
     System.out.format("getRoot: %s%n", p1.getRoot());
     System.out.format("%s%n", p1.toUri());
+    System.out.format("resolve(\"nuevo\"): %s%n", p1.resolve("nuevo"));
   }
 
   public static void ejemplo02() {
@@ -122,8 +129,135 @@ public class JavaIO {
     System.out.println("Files.exists*(" + p2 + ") = " + existe);
   }
 
-  /*
+  public static void ejemplo06() {
+
+    final String URI1 = "/home/david.cc/foo/original";
+    final String URI2 = "/home/david.cc/foo/temp/original";
+    Path origen = Paths.get(URI1);
+    Path destino = Paths.get(URI2);
+
+    crearFichero(origen);
+
+    boolean existe = Files.exists(origen);
+    System.out.println("Files.exists*(" + origen + ") = " + existe);
+    existe = Files.exists(destino);
+    System.out.println("Files.exists*(" + destino + ") = " + existe);
+    System.out.println("Moviendo el fichero");
+
+    try {
+      Files.move(origen, destino, StandardCopyOption.REPLACE_EXISTING,
+          StandardCopyOption.ATOMIC_MOVE);
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+    existe = Files.exists(origen);
+    System.out.println("Files.exists*(" + origen + ") = " + existe);
+    existe = Files.exists(destino);
+    System.out.println("Files.exists*(" + destino + ") = " + existe);
+
+  }
+
+  public static void ejemplo07() {
+    final String URI1 = "/home/david.cc/foo/original";
+    final String URI2 = "/home/david.cc/foo/enalceSimbolico";
+    final String URI3 = "/home/david.cc/foo/enlaceDuro";
+    Path fichero = Paths.get(URI1);
+    Path enlace = Paths.get(URI2);
+    Path enlaceDuro = Paths.get(URI3);
+
+    // crearFichero(fichero);
+    borrarFichero(enlace);
+    borrarFichero(enlaceDuro);
+
+    boolean existe = Files.exists(fichero);
+    System.out.println("Files.exists*(" + fichero + ") = " + existe);
+    existe = Files.exists(enlace);
+    System.out.println("Files.exists*(" + enlace + ") = " + existe);
+    System.out.println("\nCreando enlace simbolico");
+
+    try {
+      Files.createSymbolicLink(enlace, fichero);
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+    existe = Files.exists(fichero);
+    System.out.println("Files.exists*(" + fichero + ") = " + existe);
+    existe = Files.exists(enlace);
+    System.out.println("Files.exists*(" + enlace + ") = " + existe);
+
+    existe = Files.exists(fichero);
+    System.out.println("Files.exists*(" + fichero + ") = " + existe);
+    existe = Files.exists(enlaceDuro);
+    System.out.println("Files.exists*(" + enlaceDuro + ") = " + existe);
+    System.out.println("\nCreando enlace duro");
+
+    try {
+      Files.createLink(enlaceDuro, fichero);
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+    existe = Files.exists(fichero);
+    System.out.println("Files.exists*(" + fichero + ") = " + existe);
+    existe = Files.exists(enlaceDuro);
+    System.out.println("Files.exists*(" + enlaceDuro + ") = " + existe);
+
+    System.out.format("isSymbolicLink(" + enlace + "): %s%n", Files.isSymbolicLink(enlace));
+    try {
+      System.out.format("readSymbolicLink(%s): %s%n", enlace, Files.readSymbolicLink(enlace));
+    } catch (IOException x) {
+      System.err.println(x);
+    }
+
+  }
+
+  public static void ejemplo08() {
+    final String URI1 = "/home/david.cc/foo/fichero.txt";
+    Path fichero = Paths.get(URI1);
+
+    crearFichero(fichero);
+
+    try {
+      System.out.format("Con tamaño: %s Bytes %n", Files.size(fichero));
+      System.out.format("Directorio: %s%n", Files.isDirectory(fichero));
+      System.out.format("Fichero regular: %s%n", Files.isRegularFile(fichero));
+      System.out.format("Oculto: %s%n", Files.isHidden(fichero));
+      System.out.format("Propietario: %s%n", Files.getOwner(fichero));
+
+      BasicFileAttributes attr = Files.readAttributes(fichero, BasicFileAttributes.class);
+
+      System.out.println("creationTime: " + attr.creationTime());
+      System.out.println("lastAccessTime: " + attr.lastAccessTime());
+      System.out.println("lastModifiedTime: " + attr.lastModifiedTime());
+
+      System.out.println("isDirectory: " + attr.isDirectory());
+      System.out.println("isOther: " + attr.isOther());
+      System.out.println("isRegularFile: " + attr.isRegularFile());
+      System.out.println("isSymbolicLink: " + attr.isSymbolicLink());
+      System.out.println("size: " + attr.size());
+
+      final String ATRIBUTOS = "posix:permissions,owner,size";
+      Map<String, Object> mapAtributos = Files.readAttributes(fichero, ATRIBUTOS);
+      System.out.println(mapAtributos);
+
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
+  }
+
+
+
+  /**
    * Crea un fichero e inserta un texto de ejemplo
+   * 
+   * @param path ruta o path en la que se creara el fichero
    */
   private static void crearFichero(Path path) {
     Set<PosixFilePermission> perms = PosixFilePermissions.fromString("rw-r--r--");
@@ -149,5 +283,27 @@ public class JavaIO {
       e.printStackTrace();
     }
   };
+
+  /**
+   * Elimina un fichero procesando las posibles excepciones
+   * 
+   * @param path ruta o path en la que se eliminara
+   */
+  private static void borrarFichero(Path path) {
+
+    try {
+      Files.delete(path);
+    } catch (NoSuchFileException e) {
+      System.err.format("%s: no such" + " file or directory%n", path);
+    } catch (DirectoryNotEmptyException e) {
+      System.err.format("%s not empty%n", path);
+    } catch (IOException e) {
+      // File permission problems are caught here.
+      System.err.println(e);
+    }
+
+  }
+
+
 
 }
