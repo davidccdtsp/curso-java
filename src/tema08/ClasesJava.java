@@ -8,6 +8,10 @@ import controlAcceso.Pruebas;
 // import controlAcceso.Sample;
 
 public class ClasesJava {
+	
+    enum Pais {
+        USA, GBR, ESP, FRA, ITA, DEU
+      };
 
   public static void ejemplo01() {
 
@@ -183,36 +187,35 @@ public class ClasesJava {
     System.out.println();
     System.out.println("Creando enumerado Paises");
 
-    enum Pais {
-      USA, GBR, ESP, FRA, ITA, DEU
-    };
-    Pais pais = Pais.DEU;
-    int codigoPais = switch (pais) {
-      case USA -> 840;
-      case GBR -> 626;
-      case ESP -> 724;
-      case FRA -> 250;
-      case ITA -> 380;
-      case DEU -> 276;
-      default -> 0;
-    };
+    Pais pais = Pais.GBR;
+    int codigoPais;
+
+    switch (pais) {
+      case USA: codigoPais = 840; break;
+      case GBR: codigoPais = 626; break;
+      case ESP: codigoPais = 724; break;
+      case FRA: codigoPais = 250; break;
+      case ITA: codigoPais = 380; break;
+      case DEU: codigoPais = 276; break;
+      default: codigoPais = 0; break;
+    }
 
     System.out.println("El codigo de pais para "+pais+" es "+codigoPais+" "+pais);
 
   }
 
-  // Records
-  public static void ejemplo07() {
-
-    System.out.println();
-    System.out.println("Creando record de Pais");
-
-    Pais india = new Pais("Nueva Delhi", 1428);
-
-    System.out.println(india);
-    System.out
-        .println("india.poblacion = " + india.poblacion() + " india.capital =" + india.capital());
-
-  }
+//  // Records
+//  public static void ejemplo07() {
+//
+//    System.out.println();
+//    System.out.println("Creando record de Pais");
+//
+//    Pais india = new Pais("Nueva Delhi", 1428);
+//
+//    System.out.println(india);
+//    System.out
+//        .println("india.poblacion = " + india.poblacion() + " india.capital =" + india.capital());
+//
+//  }
 
 }

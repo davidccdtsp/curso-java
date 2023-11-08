@@ -188,19 +188,20 @@ public class TiposPrimitivos {
         "(Otra forma de concatenar)" + cadena + " es la ecuación de equivalencia masa-energía";
     String aPartirDeLineas =
         "Esto es un string" + " creado a partir de varios literales" + "en diferentes lineas";
-    String html = """
-        <html>
-            <body>
-                <p>Hello, world</p>
-            </body>
-        </html>
-        """;
+// A partir de Java 15
+//    String html = """
+//        <html>
+//            <body>
+//                <p>Hello, world</p>
+//            </body>
+//        </html>
+//        """;
 
     System.out.println("La longitud de \"" + cadena + "\" es " + longitudCadena);
     System.out.println(concatenada);
     System.out.println(otraFormaDeConcatenar);
     System.out.println(aPartirDeLineas);
-    System.out.println(html);
+//    System.out.println(html);
 
     final float PI = 3.1415f;
     final int DIAMETRO_TIERRA = 12742;
@@ -414,28 +415,29 @@ public class TiposPrimitivos {
     System.out.println("int sum = "+sum);
   }
 
-  public static void ejemplo11(){
-    // Var
-    class Demo{
-      // var propiedad = 12;   // Error, no puede ser una propiedad
-    }
-
-    var x = 100;    // int
-    var y = 1.90;   // double
-    var z = 'a';    // char
-    var p = "tanu"; // string
-    var q = false;  // boolean
-
-    System.out.println();
-    System.out.println("Ejemplo de uso de var");
-
-    System.out.println(x);
-    System.out.println(y);
-    System.out.println(z);
-    System.out.println(p);
-    System.out.println(q);
-
-  }
+//  Java SE 10
+//  public static void ejemplo11(){
+//    // Var
+//    class Demo{
+//      // var propiedad = 12;   // Error, no puede ser una propiedad
+//    }
+//
+//    var x = 100;    // int
+//    var y = 1.90;   // double
+//    var z = 'a';    // char
+//    var p = "tanu"; // string
+//    var q = false;  // boolean
+//
+//    System.out.println();
+//    System.out.println("Ejemplo de uso de var");
+//
+//    System.out.println(x);
+//    System.out.println(y);
+//    System.out.println(z);
+//    System.out.println(p);
+//    System.out.println(q);
+//
+//  }
 
 
 }

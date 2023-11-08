@@ -79,7 +79,7 @@ public class Operadores {
     System.out.println(valor); // 23
 
     float x = 128f;
-    var c = (double) -x;
+    double c = (double) -x;
     System.out.println("float x = " + x);
     System.out.println("var c = (double)+x es " + c);
     System.out.println("La clase de c es " + ((Object) c).getClass());

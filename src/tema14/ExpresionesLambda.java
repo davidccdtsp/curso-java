@@ -19,6 +19,8 @@ import java.util.function.IntSupplier;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ExpresionesLambda {
 
@@ -170,7 +172,8 @@ public class ExpresionesLambda {
     System.out.println();
     System.out.println("Uso de Predicate con removeIf");
 
-    List<String> palabrasI = List.of("Expresiones", "prohibida", "Lambda", "en", "java");
+    List<String> palabrasI = Arrays.asList("Expresiones", "prohibida", "Lambda", "en", "java");
+//    List<String> palabrasI = List.of("Expresiones", "prohibida", "Lambda", "en", "java");
     List<String> palabras = new ArrayList<>(palabrasI);
     Predicate<String> filtroString = s -> s.equals("prohibida");
 
@@ -191,7 +194,8 @@ public class ExpresionesLambda {
 
     System.out.println("Longitud de la palabara 'Hello'= " + longitud);
 
-    List<Integer> numeros = List.of(1, 2, 3, 4, 5);
+    
+    List<Integer> numeros =  Arrays.asList(1, 2, 3, 4, 5, 6);
     List<Integer> arrayListNumeros = new ArrayList<>(numeros);
 
     BiFunction<List<Integer>, Integer, List<Integer>> mapInicializa = (entrada, valor) -> {
@@ -211,29 +215,6 @@ public class ExpresionesLambda {
 
   public static void ejemplo07() {
     // Lambdas com referencias a metodos
-
-    class Demo {
-
-      static final Demo objetoDemo = new Demo("Objeto demo");
-      String palabra;
-
-      public Demo(String palabra) {
-        this.palabra = palabra;
-      }
-
-      static void escribe(String valor) {
-        System.out.println("Escribiendo " + valor.toUpperCase());
-      }
-
-      String getPalabra() {
-        return palabra;
-      }
-
-      void print(String s) {
-        System.out.println(s);
-      }
-
-    }
 
     Consumer<String> impresora = System.out::println;
     impresora.accept("hola");
@@ -322,16 +303,16 @@ public class ExpresionesLambda {
     Predicate<String> isEqualToDuke = Predicate.isEqual("Duke");
 
     Predicate<Collection<String>> colIsEmpty = Collection::isEmpty;
-    Predicate<Collection<String>> colIsNotEmpty = Predicate.not(colIsEmpty);
+//    Predicate<Collection<String>> colIsNotEmpty = Predicate.not(colIsEmpty);
 
     Collection<String> lista = new ArrayList<String>();
     colIsEmpty.test(lista);
-    colIsNotEmpty.test(lista);
+//    colIsNotEmpty.test(lista);
 
     System.out.println("\nCombinando lambdas usando metodos factoria");
     System.out.println("Creada una lista de String");
     System.out.println("La lista es vacia: " + colIsEmpty.test(lista));
-    System.out.println("La lista NO es vacia: " + colIsNotEmpty.test(lista));
+//    System.out.println("La lista NO es vacia: " + colIsNotEmpty.test(lista));
 
     // Consumer -> andThen
     Logger logger = Logger.getLogger("MyApplicationLogger");
@@ -361,7 +342,7 @@ public class ExpresionesLambda {
     System.out.println(resul);
 
     Function<String, String> combinadoB = minusculas.compose(concatena);
-    var cosa = combinadoB.apply("tEXto");
+    String cosa = combinadoB.apply("tEXto");
 
     System.out.println(cosa);
 

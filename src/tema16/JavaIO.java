@@ -15,6 +15,7 @@ import java.nio.file.Path;
 import java.nio.file.PathMatcher;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileAttribute;
 import java.nio.file.attribute.PosixFilePermission;
@@ -277,7 +278,7 @@ public class JavaIO {
     }
 
     try {
-      Files.writeString(path, "Texto de ejemplo", StandardCharsets.UTF_8);
+      Files.write(path, "Texto de ejemplo".getBytes(), StandardOpenOption.CREATE);
     } catch (IOException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();

@@ -130,8 +130,11 @@ public class ControlFlujo {
       case "viernes":
         System.out.println("Casi fin de semana");
         break;
-      case "sabado", "domingo":
-        System.out.println("Fin de semana");
+//      case "sabado", "domingo":
+//        System.out.println("Fin de semana");
+      case "sabado":
+      case "domingo":
+    	  System.out.println("Fin de semana");
         break;
       case "lunes":
       case "martes":
@@ -158,16 +161,16 @@ public class ControlFlujo {
       default: codigoPais = 0; break;
     }
 
-    pais = Pais.DEU;
-    codigoPais = switch (pais) {
-      case USA -> 840;
-      case GBR -> 626;
-      case ESP -> 724;
-      case FRA -> 250;
-      case ITA -> 380;
-      case DEU -> 276;
-      default -> 0;
-    };
+//    pais = Pais.DEU;
+//    codigoPais = switch (pais) {
+//      case USA -> 840;
+//      case GBR -> 626;
+//      case ESP -> 724;
+//      case FRA -> 250;
+//      case ITA -> 380;
+//      case DEU -> 276;
+//      default -> 0;
+//    };
 
     System.out.println("Ejemplo de uso de switch expression");
     System.out.println("El codigo de pais para " + pais + " es " + codigoPais);
@@ -241,20 +244,21 @@ public class ControlFlujo {
     System.out.println();
   }
 
-  public static void ejemplo07() {
-
-    String dia = "lunes";
-    String resultado;
-
-    resultado = switch (dia) {
-      case "sabado", "domingo" -> "Fin de semana";
-      default -> {
-        yield "Semana";
-      }
-    };
-
-    System.out.println(resultado);
-
-  }
+    // A partir de Java SE 13
+//  public static void ejemplo07() {
+//
+//    String dia = "lunes";
+//    String resultado;
+//
+//    resultado = switch (dia) {
+//      case "sabado", "domingo" -> "Fin de semana";
+//      default -> {
+//        yield "Semana";
+//      }
+//    };
+//
+//    System.out.println(resultado);
+//
+//  }
 
 }
