@@ -1,5 +1,6 @@
 package tema17;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Clase {
@@ -28,7 +29,7 @@ public class Clase {
 
   @SafeVarargs
   static <T> List<T> crearLista(T... elementos) {
-    return List.of(elementos);
+	return Arrays.asList(elementos);
   }
 
 }

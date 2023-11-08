@@ -11,7 +11,7 @@ import java.awt.color.*;
 import static java.lang.Math.PI;
 import  java.lang.Math.*;
 
-import com.dataspartan.curso.java.Curso;  // Importa el modulo creado
+//import com.dataspartan.curso.java.Curso;  // Importa el modulo creado
 
 public class PaquetesYModulos {
 
@@ -40,11 +40,11 @@ public class PaquetesYModulos {
     double piB = Math.PI;   // Impoortando java.lang.Math.*;
   }
 
-  public static void ejemplo04(){
-    // Importando modulo
-    Curso curso = new Curso();
-    curso.presentar();
-  }
+//  public static void ejemplo04(){
+//    // Importando modulo
+//    Curso curso = new Curso();
+//    curso.presentar();
+//  }
   
 }
 

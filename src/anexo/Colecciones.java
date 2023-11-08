@@ -1,6 +1,8 @@
 package anexo;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -93,8 +95,7 @@ public class Colecciones {
 
   public static void ejemplo04(){
 
-    Collection<String> cosas = List.of("taza","auriculares", "teclado", "silla");
-
+	Collection<String> cosas = Arrays.asList("taza","auriculares", "teclado", "silla");
 
     System.out.println("\nIterando sobre elementos de una coleccion");
     for(String elemento: cosas){

@@ -1,6 +1,8 @@
 package tema11;
 
 import tema11.ClaseExterna.ClaseAnidadaEstatica;
+import tema11.Uno;
+import tema11.Dos;
 
 public class ClasesAnidadas {
 
@@ -49,29 +51,25 @@ public class ClasesAnidadas {
     System.out.println("Clase Interna -> int numero = " + claseInterna.numero);
 
   }
+  
+  // Interfaz
+  interface Elemento {
+    public int getNumeroAtomico();
+
+    public String getNombre();
+  }
 
   public static void ejemplo04() {
     // Ejemplo clase anonima
 
-    // Interfaz
-    interface Elemento {
-      public int getNumeroAtomico();
-
-      public String getNombre();
-    }
 
     // // Clase anonima
     Elemento oro = new Elemento() {
 
-      public static int cosa = 22;
-
-      static {
-        System.out.println("Esto es un Inicializador estatico dentro de una clase anonima");
-        cosa = 23;
-      }
+      private int cosa = 79;
 
       public int getNumeroAtomico() {
-        return 79;
+        return cosa;
       };
 
       public String getNombre() {
@@ -95,16 +93,16 @@ public class ClasesAnidadas {
         + oro.getNumeroAtomico());
 
   }
+  
+  // Interfaz
+  interface Cosa {
+    void foo();
+  }
+  
 
   public static void ejemplo05() {
 
     // Expresiones lambda
-
-    // Interfaz
-    interface Cosa {
-      void foo();
-    }
-
     Cosa lambda0 = () -> {
     };
     Cosa lambda1 = () -> {
@@ -119,9 +117,6 @@ public class ClasesAnidadas {
     lambda0.foo();
     lambda1.foo();
 
-    interface Uno {
-      abstract int foo(int num, int exp);     // Metodo abstracto
-    }
 
     Uno lambda = (int valor, int exp) -> { 
       int resultado = valor;
@@ -131,11 +126,6 @@ public class ClasesAnidadas {
     };
 
     System.out.println(lambda.foo(2, 3));
-
-    interface Dos {
-      void foo1();
-      abstract void foo2();
-    }
 
     // Dos cosa = () -> {};   // Error
 

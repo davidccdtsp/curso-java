@@ -92,7 +92,7 @@ public class Genericos {
     // var valor = boxC.get(); // Error en tiempo de ejecucion
 
     CajaGenerica<String> boxD = box; // Warning, conversion no comprobada
-    var valor = boxD.get(); // Ok
+    String valor = boxD.get(); // Ok
 
     System.out.println();
     System.out.println("Creando un tipo raw de CajaGenerica");
@@ -143,14 +143,14 @@ public class Genericos {
 
 
   };
-
-  public static void ejemplo06() {
-
-    class Clase {
+  
+  static class Clase {
       public static <T1 extends InterfazA, InterfazB, InterfazC> void foo(T1 num1, T1 num2) {
 
       }
-    }
+    }	
+
+  public static void ejemplo06() {
 
     class A implements InterfazA {
     };
@@ -205,24 +205,9 @@ public class Genericos {
     // instanciaClase.prueba(instanciaClase2); // Error de tipos
 
   };
-
+  
   public static void ejemplo08() {
     // Inferencia de tipos
-
-    class Demo {
-      static <U> void foo(U u) {
-        System.out.println("Ejecutando metodo <U>foo(U u) sobre el tipo " + u.getClass());
-      };
-
-      static <T> CajaGenerica<T> empaquetar(T t) {
-        System.out.println("Ejecutando metodo empaquetar sobre el tipo " + t.getClass());
-        return new CajaGenerica<T>();
-      }
-
-      static <T> void desempaquetar(CajaGenerica<T> caja) {
-        System.out.println("Desempaquetando caja del tipo " + caja.getClass().getName());
-      }
-    };
 
     System.out.println();
 
@@ -257,33 +242,6 @@ public class Genericos {
 
   public static void ejemplo09() {
     // Comodines (wildcards)
-
-    class Wildcard {
-
-      // Metodo con comodin acotado
-      static void metodo1(CajaGenerica<? extends Number> caja) {
-        System.out.println("Ejecutando metodo con metodo1(CajaGenerica<? extends Number> num)");
-      };
-
-      static void metodo2(CajaGenerica<Number> caja) {
-        System.out.println("Ejecutando metodo metodo2(CajaGenerica<Number> num)");
-      };
-
-      // Metodo con comodin no acotado, emplea el metodo hashCode de Object
-      static void metodo3(CajaGenerica<?> caja) {
-        System.out.println("Imprimiendo hashCode: " + caja.hashCode());
-      }
-
-      // Metodo con comodin no acotado
-      static void metodo4(CajaGenerica<?> caja) {
-        System.out.println(caja.describir());
-      }
-
-      // Metodo con comodin acotado inferiormente
-      static void metodo5(CajaGenerica<? super Number> caja) {
-        System.out.println("Ejecutando metodo metodo5(CajaGenerica<?> caja)");
-      };
-    };
 
     CajaGenerica<Integer> cajaEnteros = new CajaGenerica<>();
     CajaGenerica<Number> cajaNumeros = new CajaGenerica<>();

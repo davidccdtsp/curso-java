@@ -7,7 +7,7 @@ public class Expresiones {
     // Ejemplos de expresiones
     int edad = 18;
     boolean menorQue = 25 > 28;
-    var edadLegal = edad>17 ? "Adulto" : "Menor";
+    String edadLegal = edad>17 ? "Adulto" : "Menor";
 
     System.out.println("Edad = "+edad);
     System.out.println(edad +" > 28 = "+menorQue);
