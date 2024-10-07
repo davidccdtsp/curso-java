@@ -1,1 +1,7 @@
-bin/*
+/bin/
+.project
+.project/*
+.vscode
+
+*.class
+

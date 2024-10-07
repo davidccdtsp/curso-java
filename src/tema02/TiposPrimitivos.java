@@ -203,16 +203,17 @@ public class TiposPrimitivos {
     System.out.println(aPartirDeLineas);
 //    System.out.println(html);
 
+    final String pi = "Pi";
     final float PI = 3.1415f;
     final int DIAMETRO_TIERRA = 12742;
     final double C = 2.998e8d;
     String fs;
 
-    fs = String.format("El numero Pi es %f, " + "el diametro terrestre es de %dkm "
-        + "la velocidad de la luz es %.2f ", PI, DIAMETRO_TIERRA, C);
+    fs = String.format("El numero %s es %f, " + "el diametro terrestre es de %dkm "
+        + "la velocidad de la luz es %.2f ",pi, PI, DIAMETRO_TIERRA, C);
 
-    System.out.printf("El numero Pi es %f, " + "el diametro terrestre es de %dkm "
-        + "la velocidad de la luz es %.2f \n", PI, DIAMETRO_TIERRA, C);
+    System.out.printf("El numero %s es %f, " + "el diametro terrestre es de %dkm "
+        + "la velocidad de la luz es %.2f \n", pi, PI, DIAMETRO_TIERRA, C);
 
     System.out.println(fs);
 
@@ -416,28 +417,28 @@ public class TiposPrimitivos {
   }
 
 //  Java SE 10
-//  public static void ejemplo11(){
-//    // Var
-//    class Demo{
-//      // var propiedad = 12;   // Error, no puede ser una propiedad
-//    }
-//
-//    var x = 100;    // int
-//    var y = 1.90;   // double
-//    var z = 'a';    // char
-//    var p = "tanu"; // string
-//    var q = false;  // boolean
-//
-//    System.out.println();
-//    System.out.println("Ejemplo de uso de var");
-//
-//    System.out.println(x);
-//    System.out.println(y);
-//    System.out.println(z);
-//    System.out.println(p);
-//    System.out.println(q);
-//
-//  }
+ public static void ejemplo11(){
+   // Var
+   class Demo{
+     // var propiedad = 12;   // Error, no puede ser una propiedad
+   }
+
+   var x = 100;    // int
+   var y = 1.90;   // double
+   var z = 'a';    // char
+   var p = "tanu"; // string
+   var q = false;  // boolean
+
+   System.out.println();
+   System.out.println("Ejemplo de uso de var");
+
+   System.out.println(x);
+   System.out.println(y);
+   System.out.println(z);
+   System.out.println(p);
+   System.out.println(q);
+
+ }
 
 
 }

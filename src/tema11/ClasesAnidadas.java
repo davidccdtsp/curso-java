@@ -1,6 +1,6 @@
 package tema11;
 
-import tema11.ClaseExterna.ClaseAnidadaEstatica;
+import tema11.ClaseExterna.*;
 import tema11.Uno;
 import tema11.Dos;
 
@@ -24,6 +24,8 @@ public class ClasesAnidadas {
   }
 
   public static void ejemplo02() {
+	  
+	  System.out.println("\n***************");
 
     // Ejemplo clase local
     ClaseExterna claseExterna = new ClaseExterna();

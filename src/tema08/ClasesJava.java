@@ -18,7 +18,7 @@ public class ClasesJava {
     Clase objeto = new Clase();
 
     objeto.valorPublico = 22;
-    // objeto.valorPrivado = 10;
+//     objeto.valorPrivado = 10;
     objeto.imprimirValor();
 
     objeto.setValorPrivado(15);

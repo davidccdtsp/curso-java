@@ -161,16 +161,16 @@ public class ControlFlujo {
       default: codigoPais = 0; break;
     }
 
-//    pais = Pais.DEU;
-//    codigoPais = switch (pais) {
-//      case USA -> 840;
-//      case GBR -> 626;
-//      case ESP -> 724;
-//      case FRA -> 250;
-//      case ITA -> 380;
-//      case DEU -> 276;
-//      default -> 0;
-//    };
+  //  pais = Pais.DEU;
+  //  codigoPais = switch (pais) {
+  //    case USA -> 840;
+  //    case GBR -> 626;
+  //    case ESP -> 724;
+  //    case FRA -> 250;
+  //    case ITA -> 380;
+  //    case DEU -> 276;
+  //    default -> 0;
+  //  };
 
     System.out.println("Ejemplo de uso de switch expression");
     System.out.println("El codigo de pais para " + pais + " es " + codigoPais);

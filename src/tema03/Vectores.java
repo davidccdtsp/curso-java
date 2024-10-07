@@ -108,11 +108,11 @@ public class Vectores {
     }
 
     System.out.println("\nArray original: ");
-    java.util.Arrays.stream(cafes).map(coffee -> coffee + " ").forEach(System.out::print);
+    Arrays.stream(cafes).map(coffee -> coffee + " ").forEach(System.out::print);
     System.out.println("\nArray copiado con copyOfRange: ");
-    java.util.Arrays.stream(copiaCafes).map(coffee -> coffee + " ").forEach(System.out::print);
+    Arrays.stream(copiaCafes).map(coffee -> coffee + " ").forEach(System.out::print);
     System.out.println("\nArray copiado manualmente: ");
-    java.util.Arrays.stream(otraCopiaCafes).map(coffee -> coffee + " ").forEach(System.out::print);
+    Arrays.stream(otraCopiaCafes).map(coffee -> coffee + " ").forEach(System.out::print);
     System.out.println();
 
     // Ejemplo toString

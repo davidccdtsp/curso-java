@@ -14,4 +14,14 @@ public class Demo {
       static <T> void desempaquetar(CajaGenerica<T> caja) {
         System.out.println("Desempaquetando caja del tipo " + caja.getClass().getName());
       }
+      
+     <T> void prueba(T parametro){
+    	 System.out.println("Metodo de prueba -> "+parametro);
+      }
+     
+     static <T> T unbox(CajaGenerica<T> caja) {
+         System.out.println("Unbox de caja del tipo " + caja.getClass().getName());
+    	 return caja.get();
+//    	 return caja;
+       }
 }

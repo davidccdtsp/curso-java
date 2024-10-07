@@ -7,6 +7,15 @@ public class Planeta {
   public Planeta(String nombre){
     this.nombre = nombre;
   }
+  
+  public Planeta(Planeta planeta) {
+	  this.nombre = planeta.nombre;
+	  this.diametro = planeta.diametro;
+  }
+  
+  public static Planeta copy(Planeta planeta) {
+	  return new Planeta(planeta);
+  }
 
   public void setNombre(String nuevoNombre){
     nombre = nuevoNombre;

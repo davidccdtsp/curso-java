@@ -15,7 +15,7 @@ public class Excepciones {
       System.out.println(val2);
       System.out.println("Try Block:: Fin");
     } catch (ArithmeticException e) {
-      System.out.println("ArithmeticException : Divide por cero");
+      System.out.println("ArithmeticException : Divide por cero "+e);
     } finally {
       System.out.println("Finally: ");
     }
@@ -31,7 +31,7 @@ public class Excepciones {
     try {
       System.out.println("Try Block: Inicio");
       int myArray[] = new int[5];
-      System.out.println("Array de 10 elementos: " + myArray[10]);
+      System.out.println("Array de 5 elementos: " + myArray[10]);
       myArray[5] = 10 / 0;
     }
 
@@ -56,16 +56,18 @@ public class Excepciones {
       val1 = 0;
       val2 = 25 / val1;
       System.out.println(val2);
-      System.out.println("Try Block 2: Fin");
+      System.out.println("Try Block 1: Fin");
     } catch (ArithmeticException e) {
+    	
       System.out.println("ArithmeticException :: Divide por cero");
       try {
         throw new MiExcepcion("Division por 0 ");
       } catch (MiExcepcion e1) {
         System.out.println("Try Block 2: Inicio");
-        System.out.println("Mensaje generado por MiExcepcion "+e);
+        System.out.println("Mensaje generado por MiExcepcion "+e1);
         System.out.println("Try Block 2: Fin");
       }
+      
     } finally {
       System.out.println("Finally 1 ");
     }

@@ -38,7 +38,6 @@ public class Genericos {
     System.out.println("Añadiendo un String: " + cajaGenerica.get());
 
     // cajaGenerica.set(1); // Error
-    // cajaGenerica.set(objeto); // Error
 
     System.out.println();
     System.out.println("Creada CajaGeneric<A> cajaGenericaB");
@@ -59,6 +58,10 @@ public class Genericos {
     System.out.println("Creado objeto de la clase Par<K,V> par<Integer, String>");
     System.out.println("par.getClave() = " + par.getClave());
     System.out.println("par.getValor() = " + par.getValor());
+    
+//    Par<String, String> parN = new Par<>("asdfasdf", "Cinco");
+//    System.out.println("par.getClave() = " + parN.getClave());
+//    System.out.println("par.getValor() = " + parN.getValor());
 
   };
 
@@ -74,8 +77,9 @@ public class Genericos {
     System.out.println();
     System.out.println("Creada una instancia de CajaGenercia<String>");
     System.out.println("Creada una instancia de Par<String, CajaGenerica<String>>");
-
-
+    CajaGenerica<String> valor = par.getValor();
+    System.out.println("Valor contenido en CajaGenercia<String> = "+valor.get());
+    
 
   };
 
@@ -89,10 +93,10 @@ public class Genericos {
     CajaGenerica boxB = boxA; // OK
 
     CajaGenerica<Integer> boxC = box; // Warning, conversion no comprobada
-    // var valor = boxC.get(); // Error en tiempo de ejecucion
+//    Integer valor = boxC.get(); // Error en tiempo de ejecucion
 
     CajaGenerica<String> boxD = box; // Warning, conversion no comprobada
-    String valor = boxD.get(); // Ok
+//    String valor = boxD.get(); // Ok
 
     System.out.println();
     System.out.println("Creando un tipo raw de CajaGenerica");
@@ -111,6 +115,12 @@ public class Genericos {
         System.out.println("Parametro 2 " + param2 + " de tipo" + param2.getClass());
         return param1;
       }
+      
+      public <T3, T4> T3 foo2(T3 param1, T4 param2) {
+          System.out.println("Parametro 1 " + param1 + " de tipo " + param1.getClass());
+          System.out.println("Parametro 2 " + param2 + " de tipo" + param2.getClass());
+          return param1;
+        }
     }
 
     System.out.println();
@@ -138,28 +148,25 @@ public class Genericos {
     System.out.println();
     System.out.println("Probando metodo con tipos acotados");
 
-    otra.foo(25, 56);
+    otra.foo(25, 56.56f);
     // otra.foo("texto","texto"); // Error de compilacion
 
 
   };
   
   static class Clase {
-      public static <T1 extends InterfazA, InterfazB, InterfazC> void foo(T1 num1, T1 num2) {
+      public static <T1 extends InterfazA> void foo(T1 num1, T1 num2) {
 
       }
-    }	
+  }	
 
   public static void ejemplo06() {
 
-    class A implements InterfazA {
-    };
-    class B implements InterfazA, InterfazB, InterfazC {
-    };
-    class C implements InterfazA {
-    };
+    class A implements InterfazA {};
+    class B implements InterfazB, InterfazC, InterfazA {};
+    class C implements InterfazA {};
 
-    Clase clase = new Clase();
+//    Clase clase = new Clase();
     A a = new A();
     B b = new B();
     C c = new C();
@@ -167,7 +174,7 @@ public class Genericos {
     Clase.foo(a, a);
     Clase.foo(b, b);
     Clase.foo(c, c);
-    // Class.foo("texto","10"); // Error
+//     Class.foo("texto","10"); // Error
 
   }
 
@@ -181,7 +188,7 @@ public class Genericos {
       };
 
       public String toString() {
-        return "dasfa" + this.getClass();
+        return "La clase de este generico es" + this.getClass();
       }
 
       void prueba(Clase<Number> param) {
@@ -197,12 +204,17 @@ public class Genericos {
     System.out.println();
 
     instanciaClase.foo(Integer.valueOf(100)); // Integer
+//    instanciaClase.foo(new Integer(100)); // Integer
+//    instanciaClase.foo(100); // Integer
     instanciaClase.foo(Double.valueOf(0.789)); // Double
 
     System.out.println();
 
     instanciaClase.prueba(instanciaClase);
-    // instanciaClase.prueba(instanciaClase2); // Error de tipos
+//    instanciaClase.prueba(instanciaClase2); // Error de tipos
+    
+    Clase<Clase<Integer>> instanciaClase3 = new Clase<>();
+//    instanciaClase.prueba(instanciaClase2); // Error de tipos
 
   };
   
@@ -230,15 +242,26 @@ public class Genericos {
     CajaGenerica<String> caja1 = Demo.<String>empaquetar("String"); // Sin inferencia
     CajaGenerica<String> caja2 = Demo.empaquetar("Texto"); // String -> CajaGenerica<String>
     CajaGenerica<Integer> caja3 = Demo.empaquetar(22); // Integer -> CajaGenerica<Integer>
-    // CajaGenerica<> caja4 = Demo.empaquetar("Texto"); // Error
+//     CajaGenerica<> caja4 = Demo.empaquetar("Texto"); // Error
     // CajaGenerica<Integer> caja5 = Demo.empaquetar("Texto"); // Error
 
     System.out.println();
 
     CajaGenerica caja = Demo.empaquetar("Adios");
+    caja.set("TExto");
     Demo.desempaquetar(caja); // Desde Java SE8, infiere CajaGenerica<String>
+    
+//    Demo objeto = new Demo();
+//    objeto.<String>prueba("Parametro");
+//    objeto.prueba("Parametro");
+//    objeto.prueba(12);
+    
+    Object valor = Demo.unbox(caja);
+    System.out.println(valor);
 
   };
+  
+  
 
   public static void ejemplo09() {
     // Comodines (wildcards)
@@ -253,6 +276,7 @@ public class Genericos {
     Wildcard.metodo1(cajaNumeros);
     Wildcard.metodo1(cajaEnteros); // permitido, Integer es subclase de Number
     Wildcard.metodo2(cajaNumeros);
+//     Wildcard.metodo2(cajaEnteros); // Error
 
     CajaGenerica<String> cajaCadenas = new CajaGenerica<>();
 
@@ -276,10 +300,10 @@ public class Genericos {
     Wildcard.metodo5(cajaNumeros);
     Wildcard.metodo5(cajaObjetos);
     // Wildcard.metodo5(cajaEnteros); // Error, Integer es subclase de Number
-
+   
 
   };
-
+  
   public static void ejemplo10() {
     // Restricciones
 
@@ -287,9 +311,9 @@ public class Genericos {
 
       // static T propEstatica; // Error, No es posible declarar tipos estaticos con Tipos T
       
-      // public <E> void metodo(E parametro){
-      //   E objeto = new E(); // Error, no es posible instanciar Tipos
-      // };
+//       public <E> void metodo(E parametro){
+//         E objeto = new E(); // Error, no es posible instanciar Tipos
+//       };
 
       public <E> void metodoOK(E parametro, Class<E> clase) throws Exception{
         E objeto = clase.getDeclaredConstructor().newInstance();  // OK
@@ -311,7 +335,7 @@ public class Genericos {
       }
 
       // No es posible crear arrays de tipos parametrizados
-      // Demo<Integer>[] arrayDemos = new Demo<Integer>[2];  // Error en tiempo de compilacion
+//       Demo<Integer>[] arrayDemos = new Demo<Integer>[2];  // Error en tiempo de compilacion
   
       // Crear un array de un tipo parametro
       <E> void crearArray(Class<E> clase){

@@ -6,12 +6,12 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
-    "java.jdt.ls.java.home": "/home/david.cc/jdk/jdk8u392-b08",
+    "java.jdt.ls.java.home": "/home/david.cc/jdk/jdk-22.0.2",
     "java.configuration.runtimes": [
         {
             "default": true,
-            "name": "JavaSE-8",
-            "path": "/home/david.cc/jdk/jdk8u392-b08"
+            "name": "JavaSE-22",
+            "path": "/home/david.cc/jdk/jdk-22.0.2"
         }
     ],
     "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",

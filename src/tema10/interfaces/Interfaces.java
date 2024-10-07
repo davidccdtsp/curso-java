@@ -51,11 +51,9 @@ public class Interfaces {
   public static void ejemplo04() {
     // Sobreescritura metodos default
 
-    class ClaseA implements A {
-    };
-    class ClaseB implements B {
-    };
-    class ClaseC implements C {
+    class ClaseA implements InterfazA {};
+    class ClaseB implements InterfazA {};
+    class ClaseC implements InterfazA {
       public void foo() {
         System.out.println("Metodo foo redeclarado en C, ahora es abstract");
       }
@@ -77,30 +75,40 @@ public class Interfaces {
   public static void ejemplo05() {
     // Interfacs como tipos
 
-    class ClaseA implements A {
-      public void metodoA() {
+    class ClaseA implements InterfazA {
+    	
+    	final static int CONSTANTE = 1;
+    	
+    	private String nombre;
+
+
+	public void metodoA() {
         System.out.println("Metodo propio de la ClaseA");
       };
     };
 
-    class ClaseB implements A {
+    class ClaseB implements InterfazA, InterfazB {
       public void metodoB() {
         System.out.println("Metodo propio de la ClaseB");
       };
     };
 
-    A referencia;
+    InterfazB variable = new ClaseB();
     ClaseA objetoA = new ClaseA();
     ClaseB objetoB = new ClaseB();
-    referencia = objetoA;
+   
 
     System.out.println();
     objetoA.metodoA();   
     objetoA.foo();
     objetoB.metodoB();
     objetoB.foo();
-    referencia.foo();
-    // referencia.metodoA();   // Error, metodo no definido
+//    variable.foo();
+    variable.defaultB();
+    objetoB.defaultB();
+//    ClaseB cosa = (ClaseB)variable;
+//    cosa.metodoB();
+//    referencia.metodoB();   // Error, metodo no definido
 
   };
 
@@ -109,7 +117,7 @@ public class Interfaces {
     // Interfaces Sealed
 
     // class ClaseA implements InterfazSealed{};   // Error, ClaseA no permitida
-    class ClaseA implements A{};
+    class ClaseA implements InterfazA{};
     
 
     System.out.println();

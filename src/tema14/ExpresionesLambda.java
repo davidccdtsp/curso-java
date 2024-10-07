@@ -16,6 +16,7 @@ import java.util.function.Function;
 import java.util.function.IntConsumer;
 import java.util.function.IntPredicate;
 import java.util.function.IntSupplier;
+import java.util.function.ObjIntConsumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.logging.Logger;
@@ -27,25 +28,32 @@ public class ExpresionesLambda {
   public static void ejemplo01() {
 
     Runnable runnable = () -> System.out.println("Ejecutando lambda sobre Runnable.run()");
+    Runnable runnable2 = () -> System.out.println("Otra implementacion de Runnable.run()");
     Consumer<String> consumer =
-        (s) -> System.out.println("Ejecutando lambad sobre Consumer.accept(T) = " + s);
+        (s) -> System.out.println("Ejecutando lambda sobre Consumer.accept(T) = " + s);
     Predicate<Integer> predicate = (Integer i) -> {
       return i > 100;
     };
 
     runnable.run();
+    runnable2.run();
     consumer.accept("Java!!!");
-    predicate.test(12);
+    boolean resultado = predicate.test(12);
 
-    System.out.println("Ejecutando lambda sobre Predicate.test(T)");
+    System.out.println("Ejecutando lambda sobre Predicate.test(T) = "+resultado);
+    
+    resultado = predicate.test(120);
+
+    System.out.println("Ejecutando lambda sobre Predicate.test(T) = "+resultado);
   };
 
   public static void ejemplo02() {
 
     int entero = 12;
 
-    // Consumer<Integer> consumer = i -> entero += i; // Error, entero debe ser final o effectively
+//     Consumer<Integer> consumer = i -> entero += i; // Error, entero debe ser final o effectively
     // final
+
 
   }
 
@@ -59,9 +67,10 @@ public class ExpresionesLambda {
     Supplier<Integer> newRandom = () -> random.nextInt(10);
 
     for (int index = 0; index < 5; index++) {
-      System.out.println(newRandom.get() + " "); // Llamada al metodo get que ejecuta la lambda
+      System.out.print(newRandom.get() + " "); // Llamada al metodo get que ejecuta la lambda
     }
 
+    System.out.println();
     System.out.println();
     System.out.println("Ejemplo de autoboxing");
 
@@ -121,11 +130,17 @@ public class ExpresionesLambda {
 
     BiConsumer<Random, Integer> impresorNumerosAleatorios = (generador, limite) -> {
       for (int i = 0; i < limite; i++)
-        System.out.println(generador.nextInt(10));
+        System.out.print(generador.nextInt(10)+", ");
     };
+    
+    ObjIntConsumer<Random> imprimeEnterosAleatorios = (generador, limite) -> {
+        for (int i = 0; i < limite; i++)
+          System.out.print(generador.nextInt(10)+", ");
+      };
 
     impresorNumerosAleatorios.accept(random, 5);
 
+    System.out.println();
     System.out.println();
     System.out.println("Uso de Consumer con iterables");
 
@@ -218,8 +233,8 @@ public class ExpresionesLambda {
 
     Consumer<String> impresora = System.out::println;
     impresora.accept("hola");
-
-    // Consumer<String> escribe = s -> Demo.escribe(s);
+    
+//     Consumer<String> escribe = s -> Demo.escribe(s);
     Consumer<String> escribe = Demo::escribe;
     DoubleUnaryOperator sqrt = Math::sqrt;
 
@@ -232,7 +247,7 @@ public class ExpresionesLambda {
     System.out.println("raiz de 64 = " + resultado);
 
 
-    // Function<Demo,String> getPalabra = d -> d.getPalabra();
+//    Function<Demo,String> getPalabra = d -> d.getPalabra();
     Function<Demo, String> getPalabra = Demo::getPalabra;
     Demo demo = new Demo("Lambdas");
     String palabra = getPalabra.apply(demo);
@@ -241,7 +256,7 @@ public class ExpresionesLambda {
     System.out.println("Function<Demo,String> getPalabra = Demo::getPalabra");
     System.out.println(palabra);
 
-    // BiFunction<String, String, Integer> indexOf = (sentence, word) -> sentence.indexOf(word);
+//    BiFunction<String, String, Integer> indexOf = (sentence, word) -> sentence.indexOf(word);
     BiFunction<String, String, Integer> indexOf = String::indexOf;
     int indice = indexOf.apply("hola mundo", "mundo");
 
@@ -250,20 +265,20 @@ public class ExpresionesLambda {
 
     System.out.println("\nEjemplo de referencia enlazada a metodo");
 
-    // Consumer<String> demoPrint = s -> Demo.objetoDemo.print(s);
+//     Consumer<String> demoPrint = s -> Demo.objetoDemo.print(s);
     Consumer<String> demoPrint = Demo.objetoDemo::print;
     demoPrint.accept("Java");
 
     System.out.println("\nEjemplo de referencia a constructor");
 
-    // Function<String,Demo> constructorDemo = s -> new Demo(s);
+//    Function<String,Demo> constructorDemo = s -> new Demo(s);
     Function<String, Demo> constructorDemo = Demo::new;
     Demo nuevoDemo = constructorDemo.apply("palabra");
 
     System.out.println("Creado objeto Demo(" + nuevoDemo.getPalabra() + ")");
 
     // Ejemplo con Supplier para generar ArrayList
-    // Supplier<List<String>> newListOfStrings = () -> new ArrayList<>();
+//    Supplier<List<String>> newListOfStrings = () -> new ArrayList<>();
     Supplier<List<String>> newListOfStrings = ArrayList::new;
     List<String> nuevaLista = newListOfStrings.get();
 
@@ -284,8 +299,8 @@ public class ExpresionesLambda {
     System.out
         .println("Creada lambda para comprobar que un string no es nulo, menor que 5 y no vacio");
     System.out.println("Nube -> " + p.test("Nube"));
-    System.out.println("Nube -> " + p.test("Ballena"));
-    System.out.println("Nube -> " + p.test(""));
+    System.out.println("Ballena -> " + p.test("Ballena"));
+    System.out.println("\"\" -> " + p.test(""));
 
     Predicate<String> isNull = Objects::isNull;
     Predicate<String> isEmpty = String::isEmpty;
@@ -297,8 +312,8 @@ public class ExpresionesLambda {
     System.out.println();
     System.out.println("Creada lambda para comprobar que un string NO es null o vacio");
     System.out.println("Nube -> " + p.test("Nube"));
-    System.out.println("Nube -> " + p.test(null));
-    System.out.println("Nube -> " + p.test(""));
+    System.out.println("mull -> " + p.test(null));
+    System.out.println("\"\" -> " + p.test(""));
 
     Predicate<String> isEqualToDuke = Predicate.isEqual("Duke");
 
@@ -309,7 +324,7 @@ public class ExpresionesLambda {
     colIsEmpty.test(lista);
 //    colIsNotEmpty.test(lista);
 
-    System.out.println("\nCombinando lambdas usando metodos factoria");
+    System.out.println("\nCombinando lambdas");
     System.out.println("Creada una lista de String");
     System.out.println("La lista es vacia: " + colIsEmpty.test(lista));
 //    System.out.println("La lista NO es vacia: " + colIsNotEmpty.test(lista));
@@ -324,15 +339,16 @@ public class ExpresionesLambda {
     System.out.println("\nEncadenndo lambdas con Consumer andThen");
     printAndLog.accept("HOLA");
 
-    // Function
+    // Consumer
     Consumer<String> mayusculas = palabra -> System.out.println(palabra.toUpperCase());
     Consumer<String> imprime = palabra -> System.out.println(palabra);
 
     Consumer<String> imprimeMayus = mayusculas.andThen(imprime);
     imprimeMayus.accept("cadena en minusculas");
 
+    // Function
     System.out.println("\nCombiando y encadenando metodos default ");
-
+    
     Function<String, String> minusculas = palabra -> palabra.toLowerCase();
     Function<String, String> concatena = palabra -> palabra.concat("-SUFIJO");
 
@@ -369,7 +385,7 @@ public class ExpresionesLambda {
       }
     }
 
-    // Comparator<Integer> comparator = (i1, i2) -> Integer.compare(i1, i2);
+//     Comparator<Integer> comparator = (i1, i2) -> Integer.compare(i1, i2);
     Comparator<Integer> comparator = Integer::compare;
     int resultado = comparator.compare(12, 31);
 
@@ -382,7 +398,7 @@ public class ExpresionesLambda {
     System.out.println("\nImplemntando un comparador de objetos DEMO");
     System.out.println("Demo(12) comparado con Demo(31) = " + resultado);
 
-    // Comparator<Demo> comparadorDemosMod7 = (d1,d2) -> Integer.compare(d1.mod7(), d2.mod7());
+//     Comparator<Demo> comparadorDemosMod7 = (d1,d2) -> Integer.compare(d1.mod7(), d2.mod7());
     Comparator<Demo> comparadorDemosMod7 = Comparator.comparing(Demo::mod7);
     resultado = comparadorDemosMod7.compare(new Demo(12), new Demo(31));
 

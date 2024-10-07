@@ -30,7 +30,7 @@ public class Coche {
     this(1600, 100, 1700);
   }
 
-
+//  public void entrar(Pasajero[] pasajeros) {
   public void entrar(Pasajero... pasajeros) {
     for (int i = 0; i < pasajeros.length; i++) {
       peso += pasajeros[i].getPeso();

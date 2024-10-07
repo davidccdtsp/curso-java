@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Clase {
 
-
   /**
    * @deprecated Metodo obsoleto, usar metodo2
    */
@@ -31,5 +30,5 @@ public class Clase {
   static <T> List<T> crearLista(T... elementos) {
 	return Arrays.asList(elementos);
   }
-
+  
 }
