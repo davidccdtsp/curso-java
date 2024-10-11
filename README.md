@@ -21,6 +21,7 @@ Este repositorio contiene ejemplos de código en Java que cubren una variedad de
 15. **Excepciones**: Manejo de excepciones en Java.
 16. **Java I/O API**: Lectura y escritura de archivos y flujos en Java.
 17. **Anotaciones**: Uso de anotaciones en Java.
+18. **Colecciones**: Ejemplos básicos de trabajo con colecciones. 
 
 ## Ejemplos de Código
 
