@@ -43,8 +43,8 @@ public class Vectores {
     // Array multidimensional
     int[][] matriz = {{1, 2, 3}, {4, 5, 6}};
 
-    System.out.println("\n[" + matriz[0][0] + " |" + matriz[0][1] + " |" + matriz[0][2] + "]");
-    System.out.println("[" + matriz[1][0] + " |" + matriz[1][1] + " |" + matriz[1][2] + "]");
+    System.out.println("\n[" + matriz[0][0] + " | " + matriz[0][1] + " |" + matriz[0][2] + "]");
+    System.out.println("[" + matriz[1][0] + " | " + matriz[1][1] + " |" + matriz[1][2] + "]");
 
   }
 
@@ -54,13 +54,14 @@ public class Vectores {
     String[] lenguajes = {"C++", "Python", "Java", "Haskell"};
     String[] algunosLenguajes = new String[4];
 
+    System.out.println();
     System.out.println("String[] = lenguajes ");
     System.out.println(lenguajes[0]);
     System.out.println(lenguajes[1]);
     System.out.println(lenguajes[2]);
     System.out.println(lenguajes[3]);
 
-    // Copia dsde la posici'on 2 de lenguajes los 2 siguientes elementos en algunosLenguajes
+    // Copia dsde la posicion 2 de lenguajes los 2 siguientes elementos en algunosLenguajes
     System.arraycopy(lenguajes, 2, algunosLenguajes, 0, 2);
 
     System.out.println("\narraycopy(lenguajes, 2, algunosLenguajes, 0, 2)");
@@ -69,7 +70,7 @@ public class Vectores {
     System.out.println(algunosLenguajes[2]);
     System.out.println(algunosLenguajes[3]);
 
-    // Lanzazra una excepcion, al salirse del indice del array destio
+    // Lanzara una excepcion, al salirse del indice del array destio
     // System.arraycopy(lenguajes, 3, algunosLenguajes, 0, 2);
 
     int[] numeros = {1, 2, 3};
@@ -99,7 +100,7 @@ public class Vectores {
     String[] cafes = {"Affogato", "Americano", "Cappuccino", "Corretto", "Cortado", "Doppio",
         "Espresso", "Frappucino", "Freddo", "Lungo", "Macchiato", "Marocchino", "Ristretto"};
 
-    String[] copiaCafes = java.util.Arrays.copyOfRange(cafes, 2, 9);
+    String[] copiaCafes = Arrays.copyOfRange(cafes, 2, 9);
 
     // Copia manual
     String[] otraCopiaCafes = new String[7];

@@ -120,7 +120,7 @@ public class TiposPrimitivos {
     byte nybbles = 0b0010_0101;
     long bLong = 0b11010010_01101001_10010100_10010010;
     // String de digitos esperado
-    // int i = Integer.parseInt("123_456");    // Lanza NumberFormatException
+    // int i = Integer.parseInt("123_456"); // Lanza NumberFormatException
 
     System.out.println("1234_5678_9012_3456L = " + numTarjeta);
     System.out.println("999_999_999L = " + dni);
@@ -185,23 +185,25 @@ public class TiposPrimitivos {
     // Concatenacion de strings
     String concatenada = cadena.concat(" es la ecuación de equivalencia masa-energía");
     String otraFormaDeConcatenar =
-        "(Otra forma de concatenar)" + cadena + " es la ecuación de equivalencia masa-energía";
+        "(Otra forma de concatenar) " + cadena + " es la ecuación de equivalencia masa-energía";
     String aPartirDeLineas =
         "Esto es un string" + " creado a partir de varios literales" + "en diferentes lineas";
-// A partir de Java 15
-//    String html = """
-//        <html>
-//            <body>
-//                <p>Hello, world</p>
-//            </body>
-//        </html>
-//        """;
+    // A partir de Java 15
+    String html = """
+        <html>
+            <body>
+                <p>Hello, world</p>
+            </body>
+        </html>
+        """;
+
+    System.out.println("String multidimensional: "+ html);
 
     System.out.println("La longitud de \"" + cadena + "\" es " + longitudCadena);
     System.out.println(concatenada);
     System.out.println(otraFormaDeConcatenar);
     System.out.println(aPartirDeLineas);
-//    System.out.println(html);
+    // System.out.println(html);
 
     final String pi = "Pi";
     final float PI = 3.1415f;
@@ -210,7 +212,7 @@ public class TiposPrimitivos {
     String fs;
 
     fs = String.format("El numero %s es %f, " + "el diametro terrestre es de %dkm "
-        + "la velocidad de la luz es %.2f ",pi, PI, DIAMETRO_TIERRA, C);
+        + "la velocidad de la luz es %.2f ", pi, PI, DIAMETRO_TIERRA, C);
 
     System.out.printf("El numero %s es %f, " + "el diametro terrestre es de %dkm "
         + "la velocidad de la luz es %.2f \n", pi, PI, DIAMETRO_TIERRA, C);
@@ -240,7 +242,7 @@ public class TiposPrimitivos {
     String s2 = String.valueOf(23.44f);
     String s3 = Integer.toString(i);
     String s4 = Float.toString(23.44f);
-
+    
     System.out.println("String s1 = " + s1);
     System.out.println("String s2 = " + s2);
     System.out.println("String s3 = " + s3);
@@ -254,7 +256,7 @@ public class TiposPrimitivos {
     // char fueraDeRango = rovers.charAt(100);
 
     System.out.println(rovers);
-    System.out.printf("El primer y último caracter son %c y %c \n", primerCaracter, ultimoCaracter);
+    System.out.printf("El primer y último caracter son %c e %c \n", primerCaracter, ultimoCaracter);
 
     // Creacion de subcadenas
     String rover1 = rovers.substring(0, 11);
@@ -332,10 +334,11 @@ public class TiposPrimitivos {
 
     // Clase StringBuilder
     StringBuilder sb = new StringBuilder();
-    sb.append("Saludos!");
 
     System.out.println("\nCreado un nuevo StringBuilder sb");
+    System.out.println("sb.length() = " + sb.length());
     System.out.println("sb.capacity() = " + sb.capacity());
+    sb.append("Saludos!");
     System.out.println("Añadido \"Saludos\"");
     System.out.println("sb.length() = " + sb.length());
     System.out.println("sb.capacity() = " + sb.capacity());
@@ -363,7 +366,7 @@ public class TiposPrimitivos {
     sb5.insert(0, "Hola");
     System.out.println("insert(0,\"Hola\") : " + sb5);
     sb5.insert(4, " - ");
-    System.out.println("insert(4,\"-\") : " + sb5);
+    System.out.println("insert(4,\" - \") : " + sb5);
     sb5.insert(0, 1);
     System.out.println("insert(0,1) : " + sb5);
 
@@ -404,41 +407,41 @@ public class TiposPrimitivos {
     for (int i = 1; i < 50; i += 2)
       ints.add(i);
 
-    System.out.println("List<Integer> ints = "+ints);
+    System.out.println("List<Integer> ints = " + ints);
     // Esto daria un error
     // List<integer> intsB = new Arraylist<>();
 
     // Unboxing
     int sum = 0;
-    for(Integer i: ints){
-      sum+=i.intValue();
+    for (Integer i : ints) {
+      sum += i.intValue();
     }
-    System.out.println("int sum = "+sum);
+    System.out.println("int sum = " + sum);
   }
 
-//  Java SE 10
- public static void ejemplo11(){
-   // Var
-   class Demo{
-     // var propiedad = 12;   // Error, no puede ser una propiedad
-   }
+  // Java SE 10
+  public static void ejemplo11() {
+    // Var
+    class Demo {
+      // var propiedad = 12; // Error, no puede ser una propiedad
+    }
 
-   var x = 100;    // int
-   var y = 1.90;   // double
-   var z = 'a';    // char
-   var p = "tanu"; // string
-   var q = false;  // boolean
+    var x = 100; // int
+    var y = 1.90; // double
+    var z = 'a'; // char
+    var p = "tanu"; // string
+    var q = false; // boolean
 
-   System.out.println();
-   System.out.println("Ejemplo de uso de var");
+    System.out.println();
+    System.out.println("Ejemplo de uso de var");
 
-   System.out.println(x);
-   System.out.println(y);
-   System.out.println(z);
-   System.out.println(p);
-   System.out.println(q);
+    System.out.println(x);
+    System.out.println(y);
+    System.out.println(z);
+    System.out.println(p);
+    System.out.println(q);
 
- }
+  }
 
 
 }
