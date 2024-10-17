@@ -41,6 +41,7 @@ public class ControlFlujo {
     CuentaCorriente miCuenta = new CuentaCorriente();
     float[] intereses = miCuenta.simularIntereses(24, 20000, 0.002f);
 
+    System.out.println();
     System.out.println(
         "Calculando intereses en un deposito a 24 meses, con un interes del 0.002 mensual sobre 20.000€");
     System.out.println(Arrays.toString(intereses));
@@ -52,20 +53,20 @@ public class ControlFlujo {
     do {
       // Se ejecuta al menos una vez
       i++;
-      System.out.println(i);
+      System.out.print(i+ " ");
     } while (i < 10);
 
     i = 0;
     while (i < 10) {
       // Se ejecuta al menos una vez
       i++;
-      System.out.println(i);
+      System.out.print(i+ " ");
     } ;
 
   }
 
   public static void ejemplo03() {
-
+    System.out.println();
     System.out.println("Contandor de 0 a 9 empleando For");
 
     // Contador de 0 a 9 empleando For
@@ -96,12 +97,14 @@ public class ControlFlujo {
     for (int item : numeros) {
       System.out.print(item + " ");
     }
+    System.out.println();
 
   }
 
   public static void ejemplo04() {
     // Uso de switch
 
+    System.out.println();
     System.out.println("Uso de switch para transformar un numero en su traduccion a un idioma");
     int numero = 2;
 
@@ -179,10 +182,11 @@ public class ControlFlujo {
 
   public static void ejemplo05() {
 
-
+    System.out.println();
+    System.out.println("Ejemplo de finalizacion de bucles usando break");
     int i = 0;
     while (true) { // Bucle infinito
-      System.out.println(i);
+      System.out.print(i+ " ");
       i++;
       if (i == 5) // Finaliza el while
         break;
@@ -193,7 +197,7 @@ public class ControlFlujo {
     i = 0;
 
     do {
-      System.out.println(i);
+      System.out.print(i + " ");
       i++;
       if (i == 5) // Finaliza el while
         break;
@@ -203,7 +207,7 @@ public class ControlFlujo {
 
 
     for (int j = 0; j < 10; j++) {
-      System.out.println(i);
+      System.out.print(i+ " ");
       if (j == 5) // Finaliza el for
         break;
     }
@@ -212,21 +216,25 @@ public class ControlFlujo {
 
     etiqueta: for (i = 0; i < 10; i++) {
       for (int j = 0; j < 100; j++) {
-        System.out.println(i + "-" + j);
+        System.out.print(i + "-" + j + " | ");
         if (j == 3)
           break etiqueta;
       }
     }
 
+    System.out.println();
+
   }
 
   public static void ejemplo06() {
 
+    System.out.println();
+    System.out.println("Ejemplos de uso de continue");
     // Si la iteracion es par pasa a la siguiente
     for (int i = 0; i < 10; i++) {
       if (i % 2 == 0)
         continue;
-      System.out.println(i);
+      System.out.print(i + " ");
     }
 
     System.out.println();
@@ -244,21 +252,21 @@ public class ControlFlujo {
     System.out.println();
   }
 
-    // A partir de Java SE 13
-//  public static void ejemplo07() {
-//
-//    String dia = "lunes";
-//    String resultado;
-//
-//    resultado = switch (dia) {
-//      case "sabado", "domingo" -> "Fin de semana";
-//      default -> {
-//        yield "Semana";
-//      }
-//    };
-//
-//    System.out.println(resultado);
-//
-//  }
+  // A partir de Java SE 13
+ public static void ejemplo07() {
+
+   String dia = "lunes";
+   String resultado;
+
+   resultado = switch (dia) {
+     case "sabado", "domingo" -> "Fin de semana";
+     default -> {
+       yield "Semana";
+     }
+   };
+
+   System.out.println(resultado);
+
+ }
 
 }

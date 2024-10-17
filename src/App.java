@@ -20,7 +20,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        TiposPrimitivos.ejemplo01();
+        // TiposPrimitivos.ejemplo01();
         // TiposPrimitivos.ejemplo02();
         // TiposPrimitivos.ejemplo03();
         // TiposPrimitivos.ejemplo04();
@@ -51,12 +51,13 @@ public class App {
         // Sentencias.ejemplo01();
         // Bloques.ejemplo01();
         
-        // ControlFlujo.ejemplo01();
-        // ControlFlujo.ejemplo02();
-        // ControlFlujo.ejemplo03();
-        // ControlFlujo.ejemplo04();
-        // ControlFlujo.ejemplo05();
-        // ControlFlujo.ejemplo06();
+        ControlFlujo.ejemplo01();
+        ControlFlujo.ejemplo02();
+        ControlFlujo.ejemplo03();
+        ControlFlujo.ejemplo04();
+        ControlFlujo.ejemplo05();
+        ControlFlujo.ejemplo06();
+        ControlFlujo.ejemplo07();
         
         
         // ClasesJava.ejemplo01();
