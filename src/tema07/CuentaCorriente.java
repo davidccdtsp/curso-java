@@ -53,7 +53,7 @@ public class CuentaCorriente {
     int diferencial = prestamo - saldo;
     String riesgo;
 
-    if (diferencial >= 1000000) {
+    if (diferencial >= 200000) {
       riesgo = "Alto";
     } else if (diferencial >= 500000) {
       riesgo = "Medio-Alto";
@@ -76,7 +76,7 @@ public class CuentaCorriente {
     int mes = 0;
     float acumulado = deposito;
 
-    while (plazo > mes) {
+    while (plazo < mes) {
       intereses[mes] = acumulado * interes;
       acumulado += intereses[mes];
       mes++;

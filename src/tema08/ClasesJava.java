@@ -108,17 +108,19 @@ public class ClasesJava {
 
     // Acceso a clase publica con miembros publicos
     Ejemplo ejemplo = new Ejemplo();
+    System.out.println("Acceso a clase publica con miembros publicos");
     System.out.println(Ejemplo.title);
     System.out.println(ejemplo.year);
     ejemplo.printYear();
 
     // Acceso a clase publica con miembros con acceso por defecto
+    System.out.println("\nAcceso a clase publica con miembros con acceso por defecto");
     EjemploPorDefecto porDefecto = new EjemploPorDefecto();
     // El siguiente codigo producira un error
     // System.out.println(EjemploPorDefecto.title);
     // System.out.println(porDefecto.year);
     // porDefecto.printYear();
-
+    
     // Acceso a clase publica con miembros con acceso por defecto
     // desde el propio paquete
     Pruebas pruebas = new Pruebas();
@@ -126,9 +128,11 @@ public class ClasesJava {
 
     // Protected desde el mismo paquete
     AnotherSample anotherSample = new AnotherSample();
+    System.out.println("\nAcceso Protected desde el mismo paquete");
     anotherSample.helper();
 
     // Protected desde fuera del paquete
+    System.out.println("\nAcceso Protected desde fuera del paquete");
     Child hijo = new Child();
     hijo.helper();
 

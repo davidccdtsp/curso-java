@@ -55,6 +55,8 @@ public class ControlFlujo {
       i++;
       System.out.print(i+ " ");
     } while (i < 10);
+    
+    System.out.println();
 
     i = 0;
     while (i < 10) {
@@ -99,6 +101,17 @@ public class ControlFlujo {
     }
     System.out.println();
 
+
+    System.out.println("Iterando con For sobre un array de String");
+    String[] palabras = {"gato", "casa", "avion", "arbol"};
+    for (String palabra : palabras) {
+      System.out.print(palabra + " ");
+    }
+    System.out.println();
+    for(int i = 0; i < palabras.length; i++){
+      System.out.print(palabras[i] + " ");
+    }
+
   }
 
   public static void ejemplo04() {
@@ -138,7 +151,7 @@ public class ControlFlujo {
       case "sabado":
       case "domingo":
     	  System.out.println("Fin de semana");
-        break;
+        // break;
       case "lunes":
       case "martes":
         System.out.println("Primeros dias de la semana");
@@ -154,26 +167,26 @@ public class ControlFlujo {
     Pais pais = Pais.GBR;
     int codigoPais;
 
-    switch (pais) {
-      case USA: codigoPais = 840; break;
-      case GBR: codigoPais = 626; break;
-      case ESP: codigoPais = 724; break;
-      case FRA: codigoPais = 250; break;
-      case ITA: codigoPais = 380; break;
-      case DEU: codigoPais = 276; break;
-      default: codigoPais = 0; break;
-    }
+    // switch (pais) {
+    //   case USA: codigoPais = 840; break;
+    //   case GBR: codigoPais = 626; break;
+    //   case ESP: codigoPais = 724; break;
+    //   case FRA: codigoPais = 250; break;
+    //   case ITA: codigoPais = 380; break;
+    //   case DEU: codigoPais = 276; break;
+    //   default: codigoPais = 0; break;
+    // }
 
-  //  pais = Pais.DEU;
-  //  codigoPais = switch (pais) {
-  //    case USA -> 840;
-  //    case GBR -> 626;
-  //    case ESP -> 724;
-  //    case FRA -> 250;
-  //    case ITA -> 380;
-  //    case DEU -> 276;
-  //    default -> 0;
-  //  };
+   pais = Pais.DEU;
+   codigoPais = switch (pais) {
+     case USA -> 840;
+     case GBR -> 626;
+     case ESP -> 724;
+     case FRA -> 250;
+     case ITA -> 380;
+     case DEU -> 276;
+     default -> 0;
+   };
 
     System.out.println("Ejemplo de uso de switch expression");
     System.out.println("El codigo de pais para " + pais + " es " + codigoPais);
