@@ -37,7 +37,8 @@ public class Colecciones {
 
   public static void ejemplo02() {
 
-    Collection<String> animales = Arrays.asList("Vaca", "Perro", "Gallina");
+    Collection<String> animales = new ArrayList<>(Arrays.asList("Vaca", "Perro", "Gallina"));
+    // Collection<String> animales = List.of("Vaca", "Perro", "Gallina");
     Collection<String> mamiferos = List.of("Vaca", "Perro");
     Collection<String> aves = List.of("Gallina", "Pato");
     Collection<String> reptiles = List.of("Iguana");

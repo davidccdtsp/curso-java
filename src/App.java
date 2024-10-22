@@ -63,7 +63,7 @@ public class App {
         // ClasesJava.ejemplo01();
         // ClasesJava.ejemplo02();
         // ClasesJava.ejemplo03();
-        ClasesJava.ejemplo04();
+        // ClasesJava.ejemplo04();
         // ClasesJava.ejemplo05();
         // ClasesJava.ejemplo06();
         
@@ -134,11 +134,11 @@ public class App {
         // Anotaciones.ejemplo04();
         // Anotaciones.ejemplo05();
 
-        // Colecciones.ejemplo01();
-        // Colecciones.ejemplo02();
-        // Colecciones.ejemplo03();
-        // Colecciones.ejemplo04();
-        // Colecciones.ejemplo05();
+        Colecciones.ejemplo01();
+        Colecciones.ejemplo02();
+        Colecciones.ejemplo03();
+        Colecciones.ejemplo04();
+        Colecciones.ejemplo05();
 
     }
 }
