@@ -134,11 +134,11 @@ public class App {
         // Anotaciones.ejemplo04();
         // Anotaciones.ejemplo05();
 
-        Colecciones.ejemplo01();
-        Colecciones.ejemplo02();
-        Colecciones.ejemplo03();
-        Colecciones.ejemplo04();
-        Colecciones.ejemplo05();
+        // Colecciones.ejemplo01();
+        // Colecciones.ejemplo02();
+        // Colecciones.ejemplo03();
+        // Colecciones.ejemplo04();
+        // Colecciones.ejemplo05();
 
     }
 }

@@ -29,7 +29,7 @@ public class JavaIO {
 
 		// Microsoft Windows syntax
 //     final String RUTA = "\"C:\\home\\joe\\foo\"";
-    final String RUTA = "/home/david.cc/foo";
+    final String RUTA = "/home/david.cc/Escritorio/foo";
 //	final String RUTA = "$HOME/foo";
 //		Map<String, String> entorno = System.getenv();
 //		final String RUTA = entorno.get("HOME") + "/foo";
@@ -51,8 +51,8 @@ public class JavaIO {
 
 	public static void ejemplo02() {
 
-		final String URI1 = "/home/david.cc/foo/fooA.txt";
-		final String URI2 = "/home/david.cc/foo/falso";
+		final String URI1 = "/home/david.cc/Escritorio/foo/fooA.txt";
+		final String URI2 = "/home/david.cc/Escritorio/foo/falso";
 		Path p1 = Paths.get(URI1);
 		Path p2 = Paths.get(URI2);
 
@@ -70,7 +70,7 @@ public class JavaIO {
 
 	public static void ejemplo03() {
 
-		final String URI1 = "/home/david.cc/foo/fooC";
+		final String URI1 = "/home/david.cc/Escritorio/foo/fooC";
 		Path p1 = Paths.get(URI1);
 		Set<PosixFilePermission> perms = PosixFilePermissions.fromString("rw-r--r--");
 		FileAttribute<Set<PosixFilePermission>> attr = PosixFilePermissions.asFileAttribute(perms);
@@ -94,7 +94,7 @@ public class JavaIO {
 	}
 
 	public static void ejemplo04() {
-		final String URI1 = "/home/david.cc/foo/fooC";
+		final String URI1 = "/home/david.cc/Escritorio/foo/fooC";
 		Path p1 = Paths.get(URI1);
 		
 		try {
@@ -115,8 +115,8 @@ public class JavaIO {
 
 	public static void ejemplo05() {
 
-		final String URI1 = "/home/david.cc/foo/original";
-		final String URI2 = "/home/david.cc/foo/copia";
+		final String URI1 = "/home/david.cc/Escritorio/foo/original";
+		final String URI2 = "/home/david.cc/Escriorio/foo/copia";
 		Path p1 = Paths.get(URI1);
 		Path p2 = Paths.get(URI2);
 
@@ -135,8 +135,8 @@ public class JavaIO {
 
 	public static void ejemplo06() {
 
-		final String URI1 = "/home/david.cc/foo/original";
-		final String URI2 = "/home/david.cc/foo/temp/original";
+		final String URI1 = "/home/david.cc/Escritorio/foo/original";
+		final String URI2 = "/home/david.cc/Escritorio/foo/temp/original";
 		Path origen = Paths.get(URI1);
 		Path destino = Paths.get(URI2);
 
@@ -163,9 +163,9 @@ public class JavaIO {
 	}
 
 	public static void ejemplo07() {
-		final String URI1 = "/home/david.cc/foo/original";
-		final String URI2 = "/home/david.cc/foo/enalceSimbolico";
-		final String URI3 = "/home/david.cc/foo/enlaceDuro";
+		final String URI1 = "/home/david.cc/Escritorio/foo/original";
+		final String URI2 = "/home/david.cc/Escritorio/foo/enalceSimbolico";
+		final String URI3 = "/home/david.cc/Escritorio/foo/enlaceDuro";
 		Path fichero = Paths.get(URI1);
 		Path enlace = Paths.get(URI2);
 		Path enlaceDuro = Paths.get(URI3);
@@ -220,7 +220,7 @@ public class JavaIO {
 	}
 
 	public static void ejemplo08() {
-		final String URI1 = "/home/david.cc/foo/fichero.txt";
+		final String URI1 = "/home/david.cc/Escritorio/foo/fichero.txt";
 		Path fichero = Paths.get(URI1);
 
 		crearFichero(fichero);
