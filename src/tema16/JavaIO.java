@@ -28,7 +28,7 @@ public class JavaIO {
 	public static void ejemplo01() {
 
 		// Microsoft Windows syntax
-//     final String RUTA = "\"C:\\home\\joe\\foo\"";
+    // final String RUTA = "\"C:\\home\\joe\\foo\"";
     final String RUTA = "/home/david.cc/Escritorio/foo";
 //	final String RUTA = "$HOME/foo";
 //		Map<String, String> entorno = System.getenv();
@@ -100,7 +100,7 @@ public class JavaIO {
 		try {
 			Files.delete(p1);
 		} catch (NoSuchFileException e) {
-			System.err.format("%s: no such" + " file or directory%n", p1);
+			System.err.format("%s: no such file or directory%n", p1);
 		} catch (DirectoryNotEmptyException e) {
 			System.err.format("%s not empty%n", p1);
 		} catch (IOException e) {
@@ -116,7 +116,7 @@ public class JavaIO {
 	public static void ejemplo05() {
 
 		final String URI1 = "/home/david.cc/Escritorio/foo/original";
-		final String URI2 = "/home/david.cc/Escriorio/foo/copia";
+		final String URI2 = "/home/david.cc/Escritorio/foo/copia";
 		Path p1 = Paths.get(URI1);
 		Path p2 = Paths.get(URI2);
 
@@ -170,7 +170,7 @@ public class JavaIO {
 		Path enlace = Paths.get(URI2);
 		Path enlaceDuro = Paths.get(URI3);
 
-		// crearFichero(fichero);
+		crearFichero(fichero);
 		borrarFichero(enlace);
 		borrarFichero(enlaceDuro);
 
@@ -263,7 +263,7 @@ public class JavaIO {
 	private static void crearFichero(Path path) {
 		Set<PosixFilePermission> perms = PosixFilePermissions.fromString("rw-r--r--");
 		FileAttribute<Set<PosixFilePermission>> attr = PosixFilePermissions.asFileAttribute(perms);
-		;
+		
 
 		System.out.println();
 		System.out.println("Creando fichero: " + path);

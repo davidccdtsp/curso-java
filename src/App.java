@@ -83,12 +83,13 @@ public class App {
         // Herencia.ejemplo07();
         // Herencia.ejemplo08();
         
-        // Interfaces.ejemplo01();
-        // Interfaces.ejemplo02();
-        // Interfaces.ejemplo03();
-        // Interfaces.ejemplo04();
-        // Interfaces.ejemplo05();
-        // Interfaces.ejemplo06();
+        Interfaces.ejemplo01();
+        Interfaces.ejemplo02();
+        Interfaces.ejemplo03();
+        Interfaces.ejemplo04();
+        Interfaces.ejemplo05();
+        Interfaces.ejemplo06();
+        // Interfaces.ejemplo07();
         
         // PaquetesYModulos.ejemplo01();
         // PaquetesYModulos.ejemplo02();

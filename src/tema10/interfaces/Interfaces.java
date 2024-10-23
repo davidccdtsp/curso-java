@@ -49,11 +49,12 @@ public class Interfaces {
   };
 
   public static void ejemplo04() {
-    // Sobreescritura metodos default
+    class ClaseA implements A {
+    };
+    class ClaseB implements B {
+    };
+    class ClaseC implements C {
 
-    class ClaseA implements InterfazA {};
-    class ClaseB implements InterfazA {};
-    class ClaseC implements InterfazA {
       public void foo() {
         System.out.println("Metodo foo redeclarado en C, ahora es abstract");
       }
@@ -70,19 +71,29 @@ public class Interfaces {
     objetoB.foo(); // Metodo redefinido
     objetoC.foo(); // Metodo redeclarado
 
-  };
+  }
 
   public static void ejemplo05() {
+    class ClaseA implements InterfazA {
+    };
+    ClaseA objetoA = new ClaseA();
+
+    System.out.println();
+    System.out.println("Creando un objeto que implementa una interfaz sealed");
+    objetoA.foo(); // Metodo original
+
+  };
+
+  public static void ejemplo06() {
     // Interfacs como tipos
 
     class ClaseA implements InterfazA {
-    	
-    	final static int CONSTANTE = 1;
-    	
-    	private String nombre;
 
+      final static int CONSTANTE = 1;
 
-	public void metodoA() {
+      private String nombre;
+
+      public void metodoA() {
         System.out.println("Metodo propio de la ClaseA");
       };
     };
@@ -96,29 +107,30 @@ public class Interfaces {
     InterfazB variable = new ClaseB();
     ClaseA objetoA = new ClaseA();
     ClaseB objetoB = new ClaseB();
-   
+
 
     System.out.println();
-    objetoA.metodoA();   
+    objetoA.metodoA();
     objetoA.foo();
     objetoB.metodoB();
     objetoB.foo();
-//    variable.foo();
+    // variable.foo();
     variable.defaultB();
     objetoB.defaultB();
-//    ClaseB cosa = (ClaseB)variable;
-//    cosa.metodoB();
-//    referencia.metodoB();   // Error, metodo no definido
+    // ClaseB cosa = (ClaseB)variable;
+    // cosa.metodoB();
+    // referencia.metodoB(); // Error, metodo no definido
 
   };
 
 
-  public static void ejemplo06(){
+  public static void ejemplo07() {
     // Interfaces Sealed
 
-    // class ClaseA implements InterfazSealed{};   // Error, ClaseA no permitida
-    class ClaseA implements InterfazA{};
-    
+    // class ClaseA implements InterfazSealed{}; // Error, ClaseA no permitida
+    class ClaseA implements InterfazA {
+    };
+
 
     System.out.println();
 
