@@ -17,15 +17,17 @@ public class ClasesAnidadas {
     System.out.println();
     System.out.println("Clase interna");
     claseInterna.accesoMiembros();
+    ClaseExterna.ClaseInterna.foo();
 
     System.out.println("Clase estatica interna");
     internaEstatica.accesoMiembros(claseExterna);
+
 
   }
 
   public static void ejemplo02() {
 	  
-	  System.out.println("\n***************");
+	  System.out.println("\nClases locales");
 
     // Ejemplo clase local
     ClaseExterna claseExterna = new ClaseExterna();
@@ -57,13 +59,11 @@ public class ClasesAnidadas {
   // Interfaz
   interface Elemento {
     public int getNumeroAtomico();
-
     public String getNombre();
   }
 
   public static void ejemplo04() {
     // Ejemplo clase anonima
-
 
     // // Clase anonima
     Elemento oro = new Elemento() {
@@ -94,9 +94,12 @@ public class ClasesAnidadas {
     System.out.println("Oro es una clase anonima con nombre: " + oro.getNombre() + " y Num atomico:"
         + oro.getNumeroAtomico());
 
+    ClaseExterna claseExterna = new ClaseExterna();
+    claseExterna.usoClaseAnonima();
+
   }
   
-  // Interfaz
+  // Interfaz funcional
   interface Cosa {
     void foo();
   }
@@ -132,12 +135,12 @@ public class ClasesAnidadas {
     // Dos cosa = () -> {};   // Error
 
 
-      // int contador = 0;
+      int contador = 0;
 
-      // Uno lambda3 = (int num, int exp) -> {
-      //   contador++;
-      //   return (int)Math.pow(exp, numero);
-      // };
+      Uno lambda3 = (int num, int exp) -> {
+        // contador++;
+        return (int)Math.pow(exp, num);
+      };
     
   }
 

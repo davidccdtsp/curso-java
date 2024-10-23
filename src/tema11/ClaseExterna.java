@@ -11,7 +11,11 @@ class ClaseExterna {
 
   // ...
   class ClaseInterna {
-	  
+
+    public static void foo() {
+      System.out.println("Soy un metodo estatico de una clase interna");
+    }
+
     // El parametro numero enmascara al parametro numero de ClaseExterna
     public int numero = 10;
 
@@ -19,9 +23,8 @@ class ClaseExterna {
       System.out.println(propExterna);
       System.out.println(propPrivadaExterna);
       System.out.println(staticPropExterna);
-
     }
-    
+
     void sumaNumero(int numero) {
       this.numero += numero;
       System.out.println("Metodo sumaNumero() de la clase Interna");
@@ -35,8 +38,8 @@ class ClaseExterna {
   static class ClaseAnidadaEstatica {
 
     void accesoMiembros(ClaseExterna claseExterna) {
-//       System.out.println(propExterna); // Error de compilacion
-//       System.out.println(propPrivadaExterna); // Error de compilacion
+      // System.out.println(propExterna); // Error de compilacion
+      // System.out.println(propPrivadaExterna); // Error de compilacion
       System.out.println(staticPropExterna); // Acceso a propiedad estatica
     }
 
@@ -47,18 +50,19 @@ class ClaseExterna {
 
     final int finalVariable = 0;
     int variable = 0;
-    
+
     class ClaseLocal { // Clase local
-    	
+
       String texto = null;
 
-      ClaseLocal(String texto){
-//         variable = 12;         // Error si se descomenta
-        this.texto = texto +" "+variable+" "+finalVariable+ " "+parametro+" "+propPrivadaExterna;
+      ClaseLocal(String texto) {
+        // variable = 12; // Error si se descomenta
+        this.texto = texto + " " + variable + " " + finalVariable + " " + parametro + " "
+            + propPrivadaExterna;
       }
 
       public String toString() {
-        return "ClaseLocal.texto = "+texto;
+        return "ClaseLocal.texto = " + texto;
       }
     }
 
@@ -71,24 +75,63 @@ class ClaseExterna {
   // Metodo estatico con clase anidada
   public static void staticFoo(int parametro) {
     int variable = 0;
-//     String cadena = propExterna;  // Error de compilacion
+    // String cadena = propExterna; // Error de compilacion
     String otraCadena = staticPropExterna;
 
     class ClaseLocal { // Clase local
       String texto = null;
 
-      ClaseLocal(String texto){
-//         variable = 12;         // Error si se descomenta
-        this.texto = texto +" "+variable+" "+parametro;
+      ClaseLocal(String texto) {
+        // variable = 12; // Error si se descomenta
+        this.texto = texto + " " + variable + " " + parametro;
       }
 
       public String toString() {
-        return "ClaseLocal.texto = "+texto;
+        return "ClaseLocal.texto = " + texto;
       }
     }
 
     ClaseLocal claseLocal = new ClaseLocal("Metodo estatico");
     System.out.println(claseLocal);
+
+  }
+
+  // Interfaz
+  interface Elemento {
+    public int getNumeroAtomico();
+
+    public String getNombre();
+  }
+
+  public void usoClaseAnonima() {
+
+    int variableLocal = 120;
+
+    Elemento oro = new Elemento() {
+      static {
+        System.out.println("Inicializador estatico en clase anonima");
+      }
+
+      public static int CONSTANTE = 117;
+      interface cosa {}
+
+      private int cosa = 79;
+      public int getNumeroAtomico() {
+        return cosa;
+        // return variableLocal;
+        // return numero;
+      };
+
+      public String getNombre() {
+        return "Au";
+      };
+    };
+
+    System.out.println();
+    System.out.println("Probando clases anonimas 2");
+    System.out.println("Oro es una clase anonima con nombre: " + oro.getNombre() + " y Num atomico:"
+        + oro.getNumeroAtomico());
+
 
   }
 }
