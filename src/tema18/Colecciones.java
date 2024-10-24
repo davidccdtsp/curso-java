@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
@@ -38,7 +39,7 @@ public class Colecciones {
   public static void ejemplo02() {
 
     Collection<String> animales = new ArrayList<>(Arrays.asList("Vaca", "Perro", "Gallina"));
-    // Collection<String> animales = List.of("Vaca", "Perro", "Gallina");
+    // Collection<String> animales = List.of("Vaca", "Perro", "Gallina"); // Esto fallaria ya que genera una coleccion inmutable
     Collection<String> mamiferos = List.of("Vaca", "Perro");
     Collection<String> aves = List.of("Gallina", "Pato");
     Collection<String> reptiles = List.of("Iguana");
@@ -145,9 +146,18 @@ public class Colecciones {
     Collection<String> cosas = Arrays.asList("taza", "auriculares", "teclado", "silla");
 
     System.out.println("\nIterando sobre elementos de una coleccion");
+    System.out.print("[");
     for (String elemento : cosas) {
-      System.out.println(elemento);
+      System.out.print(elemento+" ,");
     }
+
+    System.out.println("]");
+    System.out.print("\n[");
+    for(Iterator<String> iterator = cosas.iterator(); iterator.hasNext();){
+      String elemento = iterator.next();
+      System.out.print(elemento+" ,");
+    }
+    System.out.println("]");
   }
 
 }

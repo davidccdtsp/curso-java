@@ -140,6 +140,7 @@ public class App {
         // Colecciones.ejemplo03();
         // Colecciones.ejemplo04();
         // Colecciones.ejemplo05();
+        // Colecciones.ejemplo06();
 
     }
 }

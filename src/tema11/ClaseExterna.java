@@ -11,13 +11,13 @@ class ClaseExterna {
 
   // ...
   class ClaseInterna {
+    // El parametro numero enmascara al parametro numero de ClaseExterna
+    public int numero = 10;
 
     public static void foo() {
       System.out.println("Soy un metodo estatico de una clase interna");
     }
 
-    // El parametro numero enmascara al parametro numero de ClaseExterna
-    public int numero = 10;
 
     void accesoMiembros() {
       System.out.println(propExterna);
@@ -45,7 +45,7 @@ class ClaseExterna {
 
   }
 
-  // Metodo con clase anidada interna
+  // Metodo con clase local
   public void foo(int parametro) {
 
     final int finalVariable = 0;
@@ -72,7 +72,9 @@ class ClaseExterna {
 
   }
 
-  // Metodo estatico con clase anidada
+  public static void staticDos(){}
+
+  // Metodo estatico con clase local
   public static void staticFoo(int parametro) {
     int variable = 0;
     // String cadena = propExterna; // Error de compilacion
@@ -83,7 +85,7 @@ class ClaseExterna {
 
       ClaseLocal(String texto) {
         // variable = 12; // Error si se descomenta
-        this.texto = texto + " " + variable + " " + parametro;
+        this.texto = texto + " " + variable + " " + parametro + " " + staticPropExterna;
       }
 
       public String toString() {

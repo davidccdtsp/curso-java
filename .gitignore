@@ -5,3 +5,7 @@ bin/
 
 *.class
 
+.github
+.devcontainer
+.gitignore
+

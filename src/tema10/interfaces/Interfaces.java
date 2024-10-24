@@ -31,7 +31,6 @@ public class Interfaces {
     System.out.println("Llamando a metodo estatico de interfaz");
     InterfazPrueba.metodoEstatico();
 
-
   };
 
   public static void ejemplo03() {
@@ -54,7 +53,6 @@ public class Interfaces {
     class ClaseB implements B {
     };
     class ClaseC implements C {
-
       public void foo() {
         System.out.println("Metodo foo redeclarado en C, ahora es abstract");
       }
@@ -81,6 +79,11 @@ public class Interfaces {
     System.out.println();
     System.out.println("Creando un objeto que implementa una interfaz sealed");
     objetoA.foo(); // Metodo original
+
+    class ClaseB implements InterfazB {
+    };
+    ClaseB objetoB = new ClaseB();
+    objetoB.defaultB();
 
   };
 

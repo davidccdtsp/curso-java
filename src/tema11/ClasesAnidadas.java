@@ -93,6 +93,9 @@ public class ClasesAnidadas {
     System.out.println("Probando clases anonimas");
     System.out.println("Oro es una clase anonima con nombre: " + oro.getNombre() + " y Num atomico:"
         + oro.getNumeroAtomico());
+        System.out.println("Probando clases anonimas");
+        System.out.println("Oro es una clase anonima con nombre: " + plata.getNombre() + " y Num atomico:"
+            + plata.getNumeroAtomico());
 
     ClaseExterna claseExterna = new ClaseExterna();
     claseExterna.usoClaseAnonima();
